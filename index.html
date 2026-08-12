@@ -1237,6 +1237,21 @@ footer .footer-brand .brand-mark img{
 }
 </style>
 
+
+<style>
+.ai-fab{position:fixed;right:22px;bottom:22px;z-index:9998;border:0;border-radius:999px;padding:12px 17px 12px 13px;display:flex;align-items:center;gap:8px;background:#0d5134;color:#fff;font:700 12px 'Plus Jakarta Sans',sans-serif;box-shadow:0 12px 30px rgba(4,54,34,.25);cursor:pointer}
+.ai-fab-icon{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff;color:#0d5134;font-size:15px}
+.ai-chat{position:fixed;right:22px;bottom:82px;z-index:9999;width:min(380px,calc(100vw - 28px));height:min(570px,calc(100vh - 105px));background:#fff;border:1px solid #dce8e1;border-radius:20px;box-shadow:0 22px 65px rgba(4,54,34,.22);overflow:hidden;display:flex;flex-direction:column;opacity:0;transform:translateY(16px) scale(.98);pointer-events:none;transition:.2s}
+.ai-chat.open{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
+.ai-chat-head{padding:14px;background:#0d5134;color:#fff;display:flex;align-items:center;justify-content:space-between}
+.ai-chat-title{display:flex;align-items:center;gap:10px}.ai-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff;color:#0d5134;font-weight:800;font-size:18px}.ai-chat-title strong{display:block;font-size:13px}.ai-chat-title span{display:block;font-size:9px;opacity:.78;margin-top:2px}
+.ai-close{width:32px;height:32px;border:0;background:transparent;color:#fff;font-size:25px;cursor:pointer}
+.ai-chat-body{flex:1;overflow:auto;padding:16px 13px;background:#f7faf8}.ai-message{display:flex;margin-bottom:12px}.ai-message-bot{justify-content:flex-start}.ai-bubble{max-width:86%;padding:11px 12px;border-radius:14px 14px 14px 4px;background:#fff;border:1px solid #e0ebe5;color:#234536;font-size:11px;line-height:1.6}.ai-message-user{justify-content:flex-end}.ai-message-user .ai-bubble{background:#0d5134;color:#fff;border:0;border-radius:14px 14px 4px 14px}
+.ai-suggestions{display:flex;flex-wrap:wrap;gap:7px}.ai-suggestions button{border:1px solid #cfe1d8;background:#fff;color:#0d5134;border-radius:999px;padding:8px 10px;font-size:9px;cursor:pointer}
+.ai-chat-foot{display:flex;gap:8px;padding:10px;border-top:1px solid #e2ebe6}.ai-chat-foot input{min-width:0;flex:1;border:1px solid #d8e5df;border-radius:12px;padding:10px;font-size:11px;outline:0}.ai-chat-foot button{width:40px;border:0;border-radius:12px;background:#c92f36;color:#fff;font-size:15px;cursor:pointer}.ai-disclaimer{padding:6px;text-align:center;color:#91a29a;font-size:8px;border-top:1px solid #f0f3f1}
+@media(max-width:600px){.ai-fab{right:14px;bottom:14px}.ai-chat{right:10px;bottom:72px;width:calc(100vw - 20px);height:min(560px,calc(100vh - 92px))}}
+</style>
+
 </head>
 <body>
 <!-- ================= NAVBAR ================= -->
@@ -1624,5 +1639,98 @@ footer .footer-brand .brand-mark img{
   if(year) year.textContent = new Date().getFullYear();
 })();
 </script>
+
+<button class="ai-fab" id="aiFab" type="button" aria-label="Buka Asisten AI KDKMP"><span class="ai-fab-icon">✦</span><span>AI KDKMP</span></button>
+<div class="ai-chat" id="aiChat" aria-hidden="true">
+  <div class="ai-chat-head">
+    <div class="ai-chat-title"><div class="ai-avatar">✦</div><div><strong>Asisten KDKMP</strong><span>Desa Taman Endah</span></div></div>
+    <button class="ai-close" id="aiClose" type="button" aria-label="Tutup Asisten">×</button>
+  </div>
+  <div class="ai-chat-body" id="aiChatBody">
+    <div class="ai-message ai-message-bot"><div class="ai-bubble">Halo! 👋 Saya <strong>Asisten KDKMP Desa Taman Endah</strong>.<br><br>Saya siap membantu menjawab pertanyaan seputar KDKMP.</div></div>
+    <div class="ai-suggestions">
+      <button type="button">Apa itu KDKMP?</button>
+      <button type="button">Siapa Manager KDKMP?</button>
+      <button type="button">Bagaimana cara menjadi anggota?</button>
+      <button type="button">Di mana lokasi KDKMP?</button>
+    </div>
+  </div>
+  <div class="ai-chat-foot"><input id="aiInput" type="text" placeholder="Tulis pertanyaan..." autocomplete="off"><button id="aiSend" type="button" aria-label="Kirim pertanyaan">➤</button></div>
+  <div class="ai-disclaimer">Asisten AI KDKMP • Jawaban berdasarkan informasi KDKMP yang tersedia.</div>
+</div>
+
+
+<script>
+(function(){
+  const API_URL = "https://kdkmp-ai.jolehaksimpang.workers.dev/chat";
+
+  const fab=document.getElementById('aiFab');
+  const chat=document.getElementById('aiChat');
+  const close=document.getElementById('aiClose');
+  const input=document.getElementById('aiInput');
+  const send=document.getElementById('aiSend');
+  const body=document.getElementById('aiChatBody');
+  if(!fab || !chat) return;
+
+  function openChat(){ chat.classList.add('open'); chat.setAttribute('aria-hidden','false'); setTimeout(()=>input?.focus(),150); }
+  function shut(){ chat.classList.remove('open'); chat.setAttribute('aria-hidden','true'); }
+
+  function addMessage(text, user=false){
+    const w=document.createElement('div');
+    w.className='ai-message '+(user?'ai-message-user':'ai-message-bot');
+    const b=document.createElement('div');
+    b.className='ai-bubble';
+    b.textContent=text;
+    w.appendChild(b);
+    body.appendChild(w);
+    body.scrollTop=body.scrollHeight;
+    return w;
+  }
+
+  function setBusy(busy){
+    send.disabled=busy;
+    input.disabled=busy;
+    send.style.opacity=busy ? '.6' : '1';
+  }
+
+  async function sendMessage(text){
+    text=(text||'').trim();
+    if(!text || send.disabled) return;
+
+    addMessage(text,true);
+    input.value='';
+    setBusy(true);
+    const typing=addMessage('Sedang mencari jawaban…',false);
+    typing.querySelector('.ai-bubble').classList.add('ai-typing');
+
+    try{
+      const res=await fetch(API_URL,{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({message:text})
+      });
+      const data=await res.json().catch(()=>({}));
+      typing.remove();
+
+      if(!res.ok) throw new Error(data.error || 'Server AI tidak dapat dihubungi.');
+      addMessage(data.answer || 'Maaf, saya belum mendapatkan jawaban.',false);
+    }catch(err){
+      typing.remove();
+      addMessage('Maaf, Asisten KDKMP sedang tidak dapat dihubungi. Silakan coba lagi atau hubungi pengurus melalui WhatsApp.',false);
+      console.error(err);
+    }finally{
+      setBusy(false);
+      input.focus();
+    }
+  }
+
+  fab.onclick=()=>chat.classList.contains('open')?shut():openChat();
+  close.onclick=shut;
+  send.onclick=()=>sendMessage(input.value);
+  input.onkeydown=e=>{if(e.key==='Enter')sendMessage(input.value)};
+  body.querySelectorAll('.ai-suggestions button').forEach(b=>b.onclick=()=>sendMessage(b.textContent));
+})();
+</script>
+
 </body>
 </html>
