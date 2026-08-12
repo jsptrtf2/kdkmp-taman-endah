@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KDKMP Desa Taman Endah — Bersama Membangun Ekonomi Desa</title>
+<title>KDKMP Desa Taman Endah — Portal Digital Koperasi</title>
 <meta name="description" content="Koperasi Desa/Kelurahan Merah Putih (KDKMP) Desa Taman Endah — bersama membangun ekonomi desa.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1122,7 +1122,32 @@
   </div>
 </section>
 
-<!-- ================= TENTANG ================= -->
+
+  <!-- ================= PORTAL LAUNCHER ================= -->
+  <section class="portal-launcher">
+    <div class="container">
+      <div class="launcher-grid">
+        <a href="#dashboard" class="launcher-card launcher-main">
+          <span class="launcher-icon">📊</span>
+          <div><small>UNTUK PENGURUS & MANAJEMEN</small><strong>Dashboard KDKMP</strong><span>Pantau KPI, target usaha, dan aktivitas koperasi.</span></div><b>→</b>
+        </a>
+        <a href="#produk" class="launcher-card">
+          <span class="launcher-icon">🛒</span>
+          <div><small>UNTUK WARGA</small><strong>Katalog Produk</strong><span>Lihat produk dan harga koperasi.</span></div><b>→</b>
+        </a>
+        <a href="#keanggotaan" class="launcher-card">
+          <span class="launcher-icon">👥</span>
+          <div><small>UNTUK ANGGOTA</small><strong>Portal Anggota</strong><span>Layanan anggota dan simulasi SHU.</span></div><b>→</b>
+        </a>
+        <a href="#admin" class="launcher-card">
+          <span class="launcher-icon">⚙️</span>
+          <div><small>ADMIN WEBSITE</small><strong>Kelola Website</strong><span>Kelola produk, berita, dan kontak.</span></div><b>→</b>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TENTANG ================= -->
 <section class="section about" id="tentang">
   <div class="container">
     <div class="about-grid">
@@ -1228,7 +1253,73 @@
   </div>
 </section>
 
-<!-- ================= KEGIATAN ================= -->
+
+  <!-- ================= DASHBOARD ================= -->
+  <section class="section" id="dashboard">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Dashboard Koperasi</span>
+        <h2 class="section-title">Gambaran perkembangan KDKMP</h2>
+        <p class="section-desc">Dashboard awal untuk menampilkan indikator usaha. Angka dapat diganti dengan data resmi koperasi.</p>
+      </div>
+      <div class="portal-grid">
+        <div class="portal-card reveal">
+          <h3>📊 KPI Koperasi</h3>
+          <p>Contoh indikator yang dapat dipantau manajemen.</p>
+          <div class="kpi-grid">
+            <div class="kpi"><strong>183+</strong><span>Target anggota</span></div>
+            <div class="kpi"><strong>150</strong><span>Target transaksi/hari</span></div>
+            <div class="kpi"><strong>30%</strong><span>Target SKU produk anggota</span></div>
+            <div class="kpi"><strong>20%</strong><span>Target gross margin</span></div>
+          </div>
+          <div class="progress-row"><div class="progress-label"><span>Pengembangan gerai ritel</span><span>60%</span></div><div class="progress"><i style="width:60%"></i></div></div>
+          <div class="progress-row"><div class="progress-label"><span>Produk anggota di etalase</span><span>30%</span></div><div class="progress"><i style="width:30%"></i></div></div>
+          <p class="portal-note">*Angka di atas merupakan target/contoh awal.</p>
+        </div>
+        <div class="portal-card reveal">
+          <h3>🎯 Fokus Pengembangan</h3>
+          <p>Tiga fokus utama ekosistem digital koperasi.</p>
+          <div class="benefit"><div class="benefit-icon">🛒</div><div><strong>Gerai Ritel</strong><span>Belanja warga yang mudah, nyaman, dan kompetitif.</span></div></div>
+          <div class="benefit" style="margin-top:10px;"><div class="benefit-icon">🌾</div><div><strong>Produk Anggota</strong><span>Meningkatkan pemasaran hasil anggota dan UMKM desa.</span></div></div>
+          <div class="benefit" style="margin-top:10px;"><div class="benefit-icon">📈</div><div><strong>Berbasis Data</strong><span>Menggunakan data usaha untuk mengambil keputusan.</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================= KATALOG PRODUK ================= -->
+  <section class="section" id="produk" style="background:var(--green-50);">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Katalog Produk</span>
+        <h2 class="section-title">Produk & Harga Koperasi</h2>
+        <p class="section-desc">Contoh katalog digital. Harga dapat diganti melalui panel Admin.</p>
+      </div>
+      <div class="product-toolbar reveal">
+        <input class="product-search" id="productSearch" type="search" placeholder="Cari produk..." aria-label="Cari produk">
+        <select class="product-filter" id="productFilter" aria-label="Filter kategori">
+          <option value="all">Semua kategori</option>
+          <option value="sembako">Sembako</option>
+          <option value="pertanian">Pertanian</option>
+          <option value="umkm">Produk Anggota/UMKM</option>
+        </select>
+      </div>
+      <div class="product-grid reveal-stagger" id="productGrid">
+        <article class="product-card" data-name="beras premium" data-category="sembako"><div class="product-emoji">🍚</div><h3>Beras Premium</h3><div class="product-meta">Sembako • 5 kg</div><div class="product-price">Rp 75.000</div><span class="product-status">Contoh harga</span></article>
+        <article class="product-card" data-name="gula pasir" data-category="sembako"><div class="product-emoji">🧂</div><h3>Gula Pasir</h3><div class="product-meta">Sembako • 1 kg</div><div class="product-price">Rp 18.000</div><span class="product-status">Contoh harga</span></article>
+        <article class="product-card" data-name="minyak goreng" data-category="sembako"><div class="product-emoji">🫗</div><h3>Minyak Goreng</h3><div class="product-meta">Sembako • 1 liter</div><div class="product-price">Rp 18.500</div><span class="product-status">Contoh harga</span></article>
+        <article class="product-card" data-name="pupuk pertanian" data-category="pertanian"><div class="product-emoji">🌱</div><h3>Pupuk Pertanian</h3><div class="product-meta">Pertanian • Sesuai stok</div><div class="product-price">Cek Harga</div><span class="product-status">Hubungi koperasi</span></article>
+        <article class="product-card" data-name="jagung anggota" data-category="pertanian"><div class="product-emoji">🌽</div><h3>Jagung Anggota</h3><div class="product-meta">Komoditas • Sesuai kualitas</div><div class="product-price">Cek Harga</div><span class="product-status">Produk anggota</span></article>
+        <article class="product-card" data-name="ubi kayu anggota" data-category="pertanian"><div class="product-emoji">🥔</div><h3>Ubi Kayu Anggota</h3><div class="product-meta">Komoditas • Sesuai kualitas</div><div class="product-price">Cek Harga</div><span class="product-status">Produk anggota</span></article>
+        <article class="product-card" data-name="keripik umkm" data-category="umkm"><div class="product-emoji">🍠</div><h3>Keripik UMKM</h3><div class="product-meta">Produk anggota • Kemasan</div><div class="product-price">Cek Harga</div><span class="product-status">Produk UMKM</span></article>
+        <article class="product-card" data-name="produk olahan anggota" data-category="umkm"><div class="product-emoji">🏠</div><h3>Produk Olahan Anggota</h3><div class="product-meta">UMKM desa • Variatif</div><div class="product-price">Cek Harga</div><span class="product-status">Produk UMKM</span></article>
+        <div class="product-empty" id="productEmpty">Produk tidak ditemukan.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= KEGIATAN ================= -->
 <section class="section kegiatan" id="kegiatan">
   <div class="container">
     <div class="section-head center reveal">
@@ -1265,7 +1356,66 @@
   </div>
 </section>
 
-<!-- ================= KONTAK ================= -->
+
+  <!-- ================= KEANGGOTAAN ================= -->
+  <section class="section" id="keanggotaan">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Keanggotaan</span>
+        <h2 class="section-title">Bergabung dalam ekonomi bersama</h2>
+        <p class="section-desc">Formulir ini adalah demo frontend. Belum mengirim data ke server.</p>
+      </div>
+      <div class="member-grid">
+        <div class="form-card reveal">
+          <h3 style="margin:0 0 8px;color:var(--green-900);">📝 Formulir Minat Keanggotaan</h3>
+          <p style="font-size:13px;color:var(--ink-soft);line-height:1.6;">Isi data untuk mencoba alur pendaftaran.</p>
+          <form id="memberForm">
+            <div class="form-grid">
+              <div class="form-group"><label>Nama Lengkap</label><input required name="nama" placeholder="Nama lengkap"></div>
+              <div class="form-group"><label>NIK</label><input name="nik" inputmode="numeric" placeholder="Nomor identitas"></div>
+              <div class="form-group"><label>WhatsApp</label><input required name="wa" inputmode="tel" placeholder="08xxxxxxxxxx"></div>
+              <div class="form-group"><label>Jenis Usaha</label><input name="usaha" placeholder="Contoh: petani / UMKM"></div>
+              <div class="form-group full"><label>Alamat</label><textarea name="alamat" placeholder="Alamat domisili"></textarea></div>
+            </div>
+            <button class="btn btn-primary form-submit" type="submit">Ajukan Minat Keanggotaan</button>
+          </form>
+        </div>
+        <div class="member-login reveal">
+          <div class="login-icon">👤</div>
+          <h3>Portal Anggota</h3>
+          <p>Prototype tempat anggota nantinya dapat melihat simpanan, transaksi, SHU, dan pengumuman.</p>
+          <div class="login-buttons"><button class="btn btn-primary" type="button" id="loginDemo">Login Anggota</button><a class="btn" style="background:#fff;border:1px solid var(--border);color:var(--green-800);" href="#kontak">Tanya Admin</a></div>
+          <div class="member-benefits">
+            <div class="benefit"><div class="benefit-icon">💰</div><div><strong>Simulasi SHU</strong><span>Memahami konsep manfaat ekonomi anggota.</span></div></div>
+            <div class="benefit"><div class="benefit-icon">🧾</div><div><strong>Riwayat Transaksi</strong><span>Dirancang untuk melihat aktivitas anggota.</span></div></div>
+            <div class="benefit"><div class="benefit-icon">📢</div><div><strong>Pengumuman</strong><span>Agenda dan informasi koperasi.</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================= SIMULATOR SHU ================= -->
+  <section class="section" id="simulasi-shu">
+    <div class="container">
+      <div class="shu-box reveal">
+        <span class="eyebrow" style="color:#E7F5EC;">Edukasi Anggota</span>
+        <h3>Simulasi SHU Jasa Modal</h3>
+        <p>Simulasi edukasi, bukan perhitungan SHU resmi koperasi.</p>
+        <div class="shu-form">
+          <div><label>Total SHU jasa modal (Rp)</label><input id="shuTotal" type="number" min="0" value="10000000"></div>
+          <div><label>Total modal anggota (Rp)</label><input id="shuModalTotal" type="number" min="1" value="100000000"></div>
+          <div><label>Modal kamu (Rp)</label><input id="shuModalUser" type="number" min="0" value="5000000"></div>
+          <div style="display:flex;align-items:end;"><button class="btn btn-solid" id="shuCalculate" type="button" style="width:100%;">Hitung</button></div>
+        </div>
+        <div class="shu-result"><small>Estimasi SHU jasa modal</small><strong id="shuResult">Rp 500.000</strong></div>
+        <p class="shu-warning">SHU sebenarnya mengikuti AD/ART dan keputusan Rapat Anggota.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= KONTAK ================= -->
 <section class="section" id="kontak">
   <div class="container">
     <div class="section-head center reveal">
@@ -1318,7 +1468,92 @@
   </div>
 </section>
 
-<!-- ================= FOOTER ================= -->
+
+  <!-- ================= EKOSISTEM DIGITAL ================= -->
+  <section class="section section-highlight">
+    <div class="container">
+      <div class="section-head center reveal"><span class="eyebrow">Ekosistem Digital</span><h2 class="section-title">Satu website untuk warga, anggota, dan pengelola</h2><p class="section-desc">Website KDKMP dikembangkan bertahap menjadi pusat informasi dan layanan digital koperasi.</p></div>
+      <div class="service-grid reveal-stagger">
+        <article class="service-card"><div class="service-icon">🏪</div><h3>Bisnis Koperasi</h3><p>Katalog, unit usaha, target KPI, dan informasi perkembangan usaha.</p></article>
+        <article class="service-card"><div class="service-icon">👨‍🌾</div><h3>Ekonomi Anggota</h3><p>Ruang untuk memperkenalkan produk anggota dan UMKM desa.</p></article>
+        <article class="service-card"><div class="service-icon">🧑‍💼</div><h3>Manajemen</h3><p>Dashboard dan CMS prototype untuk pengelolaan informasi koperasi.</p></article>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================= ADMIN CMS ================= -->
+  <section class="section" id="admin" style="background:var(--green-50);">
+    <div class="container">
+      <div class="admin-hero reveal">
+        <div><span class="eyebrow" style="color:#E7F5EC;">Admin KDKMP</span><h3>Kelola website KDKMP</h3><p>Prototype CMS untuk mengelola produk, berita, dan kontak. Data disimpan di browser perangkat ini.</p></div>
+        <div class="admin-status"><span>Status</span><strong>Prototype / Local Data</strong><small style="display:block;margin-top:5px;color:var(--green-100);font-size:10px;">PIN demo: 1234</small></div>
+      </div>
+      <div id="adminGate" class="admin-lock reveal" style="margin-top:24px;">
+        <div class="lock-icon">🔐</div><h3>Area Admin</h3><p>Masukkan PIN demo untuk membuka panel pengelolaan website.</p>
+        <div class="admin-login-row"><input id="adminPin" type="password" inputmode="numeric" placeholder="PIN demo: 1234"><button class="btn btn-primary" id="adminLogin" type="button">Masuk</button></div>
+        <div class="admin-login-message" id="adminLoginMessage"></div>
+      </div>
+      <div id="adminPanel" class="cms-shell" style="display:none;margin-top:24px;">
+        <aside class="cms-sidebar">
+          <button class="cms-tab active" data-panel="overview">📊 Ringkasan</button>
+          <button class="cms-tab" data-panel="products">🛒 Produk</button>
+          <button class="cms-tab" data-panel="news">📰 Berita</button>
+          <button class="cms-tab" data-panel="contact">📞 Kontak</button>
+          <button class="cms-tab" data-panel="settings">⚙️ Pengaturan</button>
+        </aside>
+        <main class="cms-main">
+          <div class="cms-panel active" id="panel-overview">
+            <div class="cms-card"><h3>Ringkasan Website</h3><p class="cms-desc">Data lokal dari browser.</p>
+              <div class="cms-stat-grid"><div class="cms-stat"><strong id="adminProductCount">0</strong><span>Produk</span></div><div class="cms-stat"><strong id="adminNewsCount">0</strong><span>Berita</span></div><div class="cms-stat"><strong>183+</strong><span>Target anggota</span></div><div class="cms-stat"><strong>2026</strong><span>Tahun</span></div></div>
+              <button class="btn btn-primary" id="logoutAdmin" type="button">Keluar Admin</button>
+            </div>
+          </div>
+          <div class="cms-panel" id="panel-products">
+            <div class="cms-card"><h3>Kelola Produk</h3><p class="cms-desc">Tambah produk ke katalog.</p>
+              <form id="adminProductForm"><div class="cms-form-grid">
+                <div class="cms-form-group"><label>Nama Produk</label><input id="apName" required placeholder="Contoh: Beras Premium"></div>
+                <div class="cms-form-group"><label>Kategori</label><select id="apCategory"><option value="sembako">Sembako</option><option value="pertanian">Pertanian</option><option value="umkm">Produk Anggota/UMKM</option></select></div>
+                <div class="cms-form-group"><label>Harga</label><input id="apPrice" placeholder="Rp 75.000"></div>
+                <div class="cms-form-group"><label>Satuan/Keterangan</label><input id="apMeta" placeholder="5 kg"></div>
+                <div class="cms-form-group full"><label>Emoji</label><input id="apEmoji" value="📦" maxlength="2"></div>
+              </div><div class="cms-form-actions"><button class="btn btn-primary" type="submit">+ Tambah Produk</button></div></form>
+            </div>
+            <div class="cms-card"><div class="cms-table-wrap"><table class="cms-table"><thead><tr><th>Produk</th><th>Kategori</th><th>Harga</th><th>Aksi</th></tr></thead><tbody id="adminProductTable"></tbody></table></div></div>
+          </div>
+          <div class="cms-panel" id="panel-news">
+            <div class="cms-card"><h3>Kelola Berita</h3><p class="cms-desc">Tambah kegiatan atau berita baru.</p>
+              <form id="adminNewsForm"><div class="cms-form-grid">
+                <div class="cms-form-group"><label>Judul</label><input id="anTitle" required placeholder="Judul kegiatan"></div>
+                <div class="cms-form-group"><label>Tanggal</label><input id="anDate" type="date"></div>
+                <div class="cms-form-group"><label>Kategori</label><input id="anCategory" value="Kegiatan"></div>
+                <div class="cms-form-group full"><label>Ringkasan</label><textarea id="anSummary" required placeholder="Ringkasan berita..."></textarea></div>
+              </div><div class="cms-form-actions"><button class="btn btn-primary" type="submit">+ Tambah Berita</button></div></form>
+            </div>
+            <div class="cms-card"><div class="cms-table-wrap"><table class="cms-table"><thead><tr><th>Judul</th><th>Tanggal</th><th>Kategori</th><th>Aksi</th></tr></thead><tbody id="adminNewsTable"></tbody></table></div></div>
+          </div>
+          <div class="cms-panel" id="panel-contact">
+            <div class="cms-card"><h3>Informasi Kontak</h3><p class="cms-desc">Data disimpan di browser ini.</p>
+              <form id="contactForm"><div class="cms-form-grid">
+                <div class="cms-form-group full"><label>Alamat</label><input id="contactAddress"></div>
+                <div class="cms-form-group"><label>WhatsApp</label><input id="contactWa"></div>
+                <div class="cms-form-group"><label>Email</label><input id="contactEmail"></div>
+              </div><div class="cms-form-actions"><button class="btn btn-primary" type="submit">Simpan Kontak</button></div></form>
+            </div>
+          </div>
+          <div class="cms-panel" id="panel-settings">
+            <div class="cms-card"><h3>Pengaturan Prototype</h3><p class="cms-desc">Untuk produksi nanti kita pindahkan ke database dan autentikasi sungguhan.</p>
+              <div class="benefit"><div class="benefit-icon">💾</div><div><strong>Local Storage</strong><span>Data tersimpan di browser.</span></div></div>
+              <div class="benefit" style="margin-top:10px;"><div class="benefit-icon">🔒</div><div><strong>Keamanan</strong><span>PIN 1234 hanya untuk demo.</span></div></div>
+              <button class="btn" id="resetCms" type="button" style="margin-top:16px;border:1px solid var(--border);color:var(--red-600);">Reset Data Demo</button>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
 <footer>
   <div class="container">
     <div class="footer-top">
@@ -1419,7 +1654,8 @@
   navSections.forEach(section => sectionObserver.observe(section));
 
   // Membership form demo
-  document.getElementById('memberForm').addEventListener('submit', (e) => {
+  const memberForm = document.getElementById('memberForm');
+  if(memberForm) memberForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const nama = e.target.nama.value.trim();
     alert(`Terima kasih, ${nama || 'Bapak/Ibu'}! Formulir minat keanggotaan berhasil disimulasikan. Untuk saat ini data belum dikirim ke server.`);
@@ -1427,7 +1663,8 @@
   });
 
   // Login demo
-  document.getElementById('loginDemo').addEventListener('click', () => {
+  const loginDemo = document.getElementById('loginDemo');
+  if(loginDemo) loginDemo.addEventListener('click', () => {
     alert('Portal anggota masih dalam tahap pengembangan. Nantinya fitur ini dapat terhubung ke sistem anggota KDKMP.');
   });
 
@@ -1442,11 +1679,15 @@
     const result = totalModal > 0 ? total * (userModal / totalModal) : 0;
     document.getElementById('shuResult').textContent = rupiah(result);
   }
-  document.getElementById('shuCalculate').addEventListener('click', calculateSHU);
-  ['shuTotal','shuModalTotal','shuModalUser'].forEach(id => {
-    document.getElementById(id).addEventListener('input', calculateSHU);
-  });
-  calculateSHU();
+  const shuCalculate = document.getElementById('shuCalculate');
+  if(shuCalculate){
+    shuCalculate.addEventListener('click', calculateSHU);
+    ['shuTotal','shuModalTotal','shuModalUser'].forEach(id => {
+      const el=document.getElementById(id);
+      if(el) el.addEventListener('input', calculateSHU);
+    });
+    calculateSHU();
+  }
 
   // ================= V4 CMS =================
   const CMS_KEY = 'kdkmp_taman_endah_cms_v4';
