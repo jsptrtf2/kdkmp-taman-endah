@@ -1147,6 +1147,96 @@ footer .footer-brand .brand-mark img{
 }
 </style>
 
+
+<style>
+/* Official profile content — KDKMP Desa Taman Endah */
+.v3-official{background:#f6faf7}
+.official-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:18px}
+.official-stat{background:#fff;border:1px solid var(--border);border-radius:14px;padding:17px;text-align:center}
+.official-stat strong{display:block;color:var(--green-800);font:800 20px 'Plus Jakarta Sans',sans-serif}
+.official-stat span{display:block;margin-top:5px;color:var(--ink-soft);font-size:10px}
+.official-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:16px;margin-bottom:16px}
+.official-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:23px;margin-bottom:16px}
+.official-card h3{margin:4px 0 15px;color:var(--green-900);font-size:18px}
+.official-list{list-style:none;margin:0;padding:0}
+.official-list li{display:grid;grid-template-columns:110px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);font-size:11px}
+.official-list li:last-child{border-bottom:0}
+.official-list strong{color:var(--green-800)}.official-list span{color:var(--ink-soft);line-height:1.55}
+.manager-highlight{display:flex;align-items:center;gap:13px;padding:16px;background:var(--green-50);border-radius:14px}
+.manager-avatar{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--green-800);color:#fff;font-weight:800}
+.manager-highlight strong{display:block;color:var(--green-900);font-size:14px}.manager-highlight span{display:block;color:var(--ink-soft);font-size:10px;margin-top:3px}
+.official-note{font-size:10.5px;line-height:1.65;color:var(--ink-soft);margin:14px 0 0}
+.structure-card{margin-bottom:16px}.structure-head{display:flex;justify-content:space-between;align-items:flex-start}
+.people-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.person{background:var(--green-50);border:1px solid var(--border);border-radius:13px;padding:14px;text-align:center;min-height:72px;display:flex;flex-direction:column;justify-content:center}
+.person strong{color:var(--green-900);font-size:11px}.person span{color:var(--ink-soft);font-size:9px;margin-top:4px;line-height:1.4}
+.supervisors{grid-template-columns:repeat(3,1fr)}
+.potential-table-wrap{overflow:auto}.potential-table{width:100%;border-collapse:collapse;min-width:700px}.potential-table th,.potential-table td{padding:10px;border-bottom:1px solid var(--border);font-size:10px;text-align:left}.potential-table th{background:var(--green-50);color:var(--green-800)}.potential-table td{color:var(--ink-soft)}
+.activity-empty{text-align:center;background:#fff;border:1px solid var(--border);border-radius:18px;padding:44px 20px;max-width:760px;margin:0 auto}
+.activity-empty-icon{font-size:34px;margin-bottom:8px}.activity-empty h3{margin:0 0 7px;color:var(--green-900)}.activity-empty p{max-width:550px;margin:0 auto 18px;color:var(--ink-soft);font-size:11px;line-height:1.7}
+@media(max-width:900px){.official-stats{grid-template-columns:repeat(3,1fr)}.official-grid{grid-template-columns:1fr}.people-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.official-stats{grid-template-columns:repeat(2,1fr)}.official-list li{grid-template-columns:1fr;gap:4px}.people-grid,.supervisors{grid-template-columns:1fr 1fr}.official-card{padding:17px}}
+</style>
+
+
+<style>
+/* Foto pengelola — upload JPG sesuai nama file di folder foto/ */
+.manager-avatar{
+  width:58px!important;height:58px!important;border-radius:50%!important;
+  overflow:hidden!important;display:flex!important;align-items:center!important;
+  justify-content:center!important;background:#dfeee7!important;flex:none!important;
+}
+.manager-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.person{
+  position:relative;
+  align-items:center!important;
+}
+.person img{
+  width:78px;height:78px;border-radius:50%;object-fit:cover;
+  display:block;margin:0 auto 10px;
+  background:#dfeee7;border:3px solid #fff;
+  box-shadow:0 5px 14px rgba(10,55,35,.10);
+}
+@media(max-width:600px){
+  .person img{width:70px;height:70px}
+}
+</style>
+
+
+<style>
+/* Pengawas layout fix */
+.supervisors{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:12px!important;
+  align-items:stretch!important;
+}
+.supervisors .person{
+  min-height:145px!important;
+  width:auto!important;
+  box-sizing:border-box!important;
+  justify-content:center!important;
+  align-items:center!important;
+}
+.supervisors .person img{
+  width:78px!important;
+  height:78px!important;
+  margin:0 auto 10px!important;
+  border-radius:50%!important;
+  object-fit:cover!important;
+}
+@media(max-width:700px){
+  .supervisors{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+}
+@media(max-width:430px){
+  .supervisors{
+    grid-template-columns:1fr!important;
+  }
+}
+</style>
+
 </head>
 <body>
 <!-- ================= NAVBAR ================= -->
@@ -1158,7 +1248,7 @@ footer .footer-brand .brand-mark img{
 </a>
 <nav class="nav-links" id="navLinks">
 <a href="#beranda">Beranda</a>
-<a href="#tentang">Tentang</a>
+<a href="#tentang">Tentang</a><a href="#profil-resmi">Profil Resmi</a>
 <a href="#unit-usaha">Unit Usaha</a>
 <a href="#keanggotaan">Keanggotaan</a>
 <a href="#kegiatan">Kegiatan</a>
@@ -1221,6 +1311,92 @@ footer .footer-brand .brand-mark img{
 </div>
 </div>
 </section>
+
+<section class="section v3-official" id="profil-resmi">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Profil Resmi</span>
+      <h2 class="section-title">KDKMP Taman Endah dalam Data</h2>
+      <p class="section-desc">Informasi profil berikut disusun berdasarkan data Simkopdes yang kamu kirim.</p>
+    </div>
+
+    <div class="official-stats reveal-stagger">
+      <div class="official-stat"><strong>3.372</strong><span>Jumlah penduduk</span></div>
+      <div class="official-stat"><strong>183</strong><span>Anggota koperasi</span></div>
+      <div class="official-stat"><strong>215 ha</strong><span>Potensi padi</span></div>
+      <div class="official-stat"><strong>5,5 ha</strong><span>Potensi ubi kayu</span></div>
+      <div class="official-stat"><strong>2,5 ha</strong><span>Potensi jagung</span></div>
+    </div>
+
+    <div class="official-grid">
+      <div class="official-card reveal">
+        <span class="eyebrow">Identitas</span>
+        <h3>Koperasi Desa Merah Putih Taman Endah</h3>
+        <ul class="official-list">
+          <li><strong>Alamat</strong><span>Jl. Pardi Sumarto, Taman Endah, Purbalinggo, Kabupaten Lampung Timur, Lampung, 34192</span></li>
+          <li><strong>Nomor AHU</strong><span>AHU-0061834.AH.01.29.TAHUN 2025</span></li>
+          <li><strong>Tanggal</strong><span>21 Juni 2025</span></li>
+          <li><strong>Email</strong><span>kopdesmerahputihtamanendah@gmail.com</span></li>
+        </ul>
+      </div>
+
+      <div class="official-card reveal">
+        <span class="eyebrow">Pengelola</span>
+        <h3>Manager KDKMP</h3>
+        <div class="manager-highlight">
+          <div class="manager-avatar"><img src="foto/manager-jaya-saputra.jpg" alt="Jaya Saputra, S.T."></div>
+          <div><strong>Jaya Saputra, S.T.</strong><span>Manager</span></div>
+        </div>
+        <p class="official-note">Pengelolaan operasional koperasi dilaksanakan bersama pengurus dan pengawas sesuai struktur organisasi KDKMP Desa Taman Endah.</p>
+      </div>
+    </div>
+
+    <div class="official-card structure-card reveal">
+      <div class="structure-head">
+        <div>
+          <span class="eyebrow">Struktur Organisasi</span>
+          <h3>Pengurus KDKMP Desa Taman Endah</h3>
+        </div>
+      </div>
+      
+<div class="people-grid">
+  <div class="person"><img src="foto/pengurus-heri-purwanto.jpg" alt="Heri Purwanto"><strong>Heri Purwanto</strong><span>Ketua</span></div>
+  <div class="person"><img src="foto/pengurus-basir.jpg" alt="Basir"><strong>Basir</strong><span>Ketua</span></div>
+  <div class="person"><img src="foto/pengurus-muhammad-saroji.jpg" alt="Muhammad Saroji"><strong>Muhammad Saroji</strong><span>Wakil Ketua Bidang Usaha</span></div>
+  <div class="person"><img src="foto/pengurus-ellya-apria-ningsih.jpg" alt="Ellya Apria Ningsih"><strong>Ellya Apria Ningsih</strong><span>Wakil Ketua Bidang Anggota</span></div>
+  <div class="person"><img src="foto/pengurus-puji-muhaimin.jpg" alt="Puji Muhaimin"><strong>Puji Muhaimin</strong><span>Sekretaris</span></div>
+  <div class="person"><img src="foto/pengurus-rudi-hermanto.jpg" alt="Rudi Hermanto"><strong>Rudi Hermanto</strong><span>Bendahara</span></div>
+  <div class="person"><img src="foto/pengurus-masidah.jpg" alt="Masidah"><strong>Masidah</strong><span>Anggota</span></div>
+</div>
+    </div>
+
+    
+<div class="official-card structure-card reveal">
+  <span class="eyebrow">Pengawas</span>
+  <h3>Pengawas KDKMP Desa Taman Endah</h3>
+  <div class="people-grid supervisors">
+    <div class="person">
+      <img src="foto/pengawas-suyitno.jpg" alt="Suyitno">
+      <strong>Suyitno</strong>
+      <span>Anggota</span>
+    </div>
+    <div class="person">
+      <img src="foto/pengawas-paijo.jpg" alt="Paijo">
+      <strong>Paijo</strong>
+      <span>Anggota</span>
+    </div>
+    <div class="person">
+      <img src="foto/pengawas-eni-purwani.jpg" alt="Eni Purwani">
+      <strong>Eni Purwani</strong>
+      <span>Anggota</span>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+</section>
+
 <section class="section visimisi">
 <div class="container">
 <div class="section-head center reveal">
@@ -1289,41 +1465,23 @@ footer .footer-brand .brand-mark img{
 </div>
 </div>
 </section>
+
 <section class="section kegiatan" id="kegiatan">
-<div class="container">
-<div class="section-head center reveal">
-<span class="eyebrow">Berita &amp; Kegiatan</span>
-<h2 class="section-title">Aktivitas seputar koperasi kami</h2>
-<p class="section-desc">Contoh tampilan berita dan kegiatan KDKMP Desa Taman Endah. Konten di bawah ini adalah placeholder dan belum mencerminkan kegiatan yang sebenarnya sudah terjadi.</p>
-</div>
-<div class="berita-grid reveal-stagger">
-<div class="berita-card">
-<div class="berita-thumb"><span class="badge">Contoh</span></div>
-<div class="berita-body">
-<div class="berita-date">Placeholder Tanggal</div>
-<h3>Kegiatan KDKMP Desa Taman Endah</h3>
-<p>Contoh ringkasan kegiatan koperasi yang dapat diganti dengan informasi sebenarnya nanti.</p>
-</div>
-</div>
-<div class="berita-card">
-<div class="berita-thumb"><span class="badge">Contoh</span></div>
-<div class="berita-body">
-<div class="berita-date">Placeholder Tanggal</div>
-<h3>Rapat dan Koordinasi Koperasi</h3>
-<p>Contoh ringkasan rapat koordinasi pengurus dan anggota koperasi desa.</p>
-</div>
-</div>
-<div class="berita-card">
-<div class="berita-thumb"><span class="badge">Contoh</span></div>
-<div class="berita-body">
-<div class="berita-date">Placeholder Tanggal</div>
-<h3>Pengembangan Usaha Koperasi</h3>
-<p>Contoh ringkasan agenda pengembangan unit usaha koperasi ke depannya.</p>
-</div>
-</div>
-</div>
-</div>
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Berita &amp; Kegiatan</span>
+      <h2 class="section-title">Aktivitas KDKMP Desa Taman Endah</h2>
+      <p class="section-desc">Dokumentasi kegiatan, pengumuman, dan perkembangan koperasi akan ditampilkan di halaman ini.</p>
+    </div>
+    <div class="activity-empty reveal">
+      <div class="activity-empty-icon">📷</div>
+      <h3>Dokumentasi kegiatan segera hadir</h3>
+      <p>Bagian ini dapat diisi dengan foto, tanggal, dan cerita singkat kegiatan KDKMP setelah dokumentasi tersedia.</p>
+      <a class="btn btn-primary" href="https://wa.me/6289570414149?text=Halo%20Pengurus%20KDKMP%20Desa%20Taman%20Endah%2C%20saya%20ingin%20mendapatkan%20informasi%20mengenai%20kegiatan%20koperasi." target="_blank" rel="noopener">Tanyakan Kegiatan</a>
+    </div>
+  </div>
 </section>
+
 <section class="section" id="keanggotaan">
 <div class="container">
 <div class="section-head center reveal">
@@ -1345,7 +1503,7 @@ footer .footer-brand .brand-mark img{
 <div class="login-icon">📝</div>
 <h3>Informasi Pendaftaran</h3>
 <p>Untuk informasi persyaratan, simpanan, hak dan kewajiban anggota, silakan hubungi pengurus atau pengelola KDKMP Desa Taman Endah.</p>
-<div class="login-buttons"><a class="btn btn-primary" href="https://wa.me/6289570414149?text=Halo%20Pengurus%20KDKMP%20Desa%20Taman%20Endah%2C%20saya%20ingin%20mendapatkan%20informasi%20mengenai%20koperasi." target="_blank" rel="noopener noreferrer">Hubungi Pengurus</a><a class="btn" href="#tentang" style="background:#fff;border:1px solid var(--border);color:var(--green-800);">Pelajari Koperasi</a></div>
+<div class="login-buttons"><a class="btn btn-primary" href="https://wa.me/6289570414149?text=Halo%20Pengurus%20KDKMP%20Desa%20Taman%20Endah%2C%20saya%20ingin%20mendapatkan%20informasi%20mengenai%20koperasi." target="_blank" rel="noopener">Hubungi Pengurus</a><a class="btn" href="#tentang" style="background:#fff;border:1px solid var(--border);color:var(--green-800);">Pelajari Koperasi</a></div>
 </div>
 </div>
 </div>
@@ -1365,7 +1523,7 @@ footer .footer-brand .brand-mark img{
 </div>
 <div>
 <strong>Alamat</strong>
-<span>[Alamat KDKMP Desa Taman Endah]</span>
+<span>Jl. Pardi Sumarto, Taman Endah, Purbalinggo, Kabupaten Lampung Timur, Lampung, 34192</span>
 </div>
 </li>
 <li>
@@ -1374,7 +1532,7 @@ footer .footer-brand .brand-mark img{
 </div>
 <div>
 <strong>WhatsApp</strong>
-<span>[Nomor WhatsApp]</span>
+<span>0895 7041 4149</span>
 </div>
 </li>
 <li>
@@ -1383,7 +1541,7 @@ footer .footer-brand .brand-mark img{
 </div>
 <div>
 <strong>Email</strong>
-<span>[Email KDKMP]</span>
+<span>kopdesmerahputihtamanendah@gmail.com</span>
 </div>
 </li>
 </ul>
@@ -1393,7 +1551,7 @@ footer .footer-brand .brand-mark img{
 <h3>Ada pertanyaan seputar koperasi?</h3>
 <p>Hubungi kami langsung melalui WhatsApp, tim KDKMP Desa Taman Endah siap membantu.</p>
 </div>
-<a class="btn wa-btn" href="https://wa.me/62xxxxxxxxxx" rel="noopener" target="_blank">
+<a class="btn wa-btn" href="https://wa.me/6289570414149?text=Halo%20Pengurus%20KDKMP%20Desa%20Taman%20Endah%2C%20saya%20ingin%20mendapatkan%20informasi%20mengenai%20koperasi." rel="noopener" target="_blank">
 <svg fill="currentColor" height="18" viewbox="0 0 24 24" width="18"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.87.51 3.62 1.4 5.12L2 22l5.13-1.35a9.9 9.9 0 0 0 4.91 1.3h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.87 9.87 0 0 0 12.04 2z"></path></svg>
           Hubungi via WhatsApp
         </a>
