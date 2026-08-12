@@ -1239,17 +1239,172 @@ footer .footer-brand .brand-mark img{
 
 
 <style>
-.ai-fab{position:fixed;right:22px;bottom:22px;z-index:9998;border:0;border-radius:999px;padding:12px 17px 12px 13px;display:flex;align-items:center;gap:8px;background:#0d5134;color:#fff;font:700 12px 'Plus Jakarta Sans',sans-serif;box-shadow:0 12px 30px rgba(4,54,34,.25);cursor:pointer}
-.ai-fab-icon{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff;color:#0d5134;font-size:15px}
-.ai-chat{position:fixed;right:22px;bottom:82px;z-index:9999;width:min(380px,calc(100vw - 28px));height:min(570px,calc(100vh - 105px));background:#fff;border:1px solid #dce8e1;border-radius:20px;box-shadow:0 22px 65px rgba(4,54,34,.22);overflow:hidden;display:flex;flex-direction:column;opacity:0;transform:translateY(16px) scale(.98);pointer-events:none;transition:.2s}
+/* ================= TAHAP 3 — AI KDKMP UX ================= */
+.ai-fab{
+  position:fixed;right:22px;bottom:22px;z-index:9998;
+  border:0;border-radius:999px;padding:10px 16px 10px 10px;
+  display:flex;align-items:center;gap:9px;
+  background:#0d5134;color:#fff;
+  font:700 12px 'Plus Jakarta Sans',sans-serif;
+  box-shadow:0 12px 30px rgba(4,54,34,.25);
+  cursor:pointer;transition:.2s ease;
+}
+.ai-fab:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(4,54,34,.30)}
+.ai-fab:focus-visible{outline:3px solid rgba(47,166,96,.35);outline-offset:3px}
+.ai-fab-icon{
+  width:30px;height:30px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:#fff;color:#0d5134;font-size:15px;
+}
+.ai-fab-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:#58d58a;display:inline-block;
+  box-shadow:0 0 0 3px rgba(88,213,138,.15);
+}
+
+.ai-chat{
+  position:fixed;right:22px;bottom:82px;z-index:9999;
+  width:min(400px,calc(100vw - 28px));
+  height:min(610px,calc(100vh - 105px));
+  background:#fff;border:1px solid #dce8e1;border-radius:22px;
+  box-shadow:0 24px 70px rgba(4,54,34,.24);
+  overflow:hidden;display:flex;flex-direction:column;
+  opacity:0;transform:translateY(16px) scale(.98);
+  pointer-events:none;transition:.22s ease;
+}
 .ai-chat.open{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
-.ai-chat-head{padding:14px;background:#0d5134;color:#fff;display:flex;align-items:center;justify-content:space-between}
-.ai-chat-title{display:flex;align-items:center;gap:10px}.ai-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff;color:#0d5134;font-weight:800;font-size:18px}.ai-chat-title strong{display:block;font-size:13px}.ai-chat-title span{display:block;font-size:9px;opacity:.78;margin-top:2px}
-.ai-close{width:32px;height:32px;border:0;background:transparent;color:#fff;font-size:25px;cursor:pointer}
-.ai-chat-body{flex:1;overflow:auto;padding:16px 13px;background:#f7faf8}.ai-message{display:flex;margin-bottom:12px}.ai-message-bot{justify-content:flex-start}.ai-bubble{max-width:86%;padding:11px 12px;border-radius:14px 14px 14px 4px;background:#fff;border:1px solid #e0ebe5;color:#234536;font-size:11px;line-height:1.6}.ai-message-user{justify-content:flex-end}.ai-message-user .ai-bubble{background:#0d5134;color:#fff;border:0;border-radius:14px 14px 4px 14px}
-.ai-suggestions{display:flex;flex-wrap:wrap;gap:7px}.ai-suggestions button{border:1px solid #cfe1d8;background:#fff;color:#0d5134;border-radius:999px;padding:8px 10px;font-size:9px;cursor:pointer}
-.ai-chat-foot{display:flex;gap:8px;padding:10px;border-top:1px solid #e2ebe6}.ai-chat-foot input{min-width:0;flex:1;border:1px solid #d8e5df;border-radius:12px;padding:10px;font-size:11px;outline:0}.ai-chat-foot button{width:40px;border:0;border-radius:12px;background:#c92f36;color:#fff;font-size:15px;cursor:pointer}.ai-disclaimer{padding:6px;text-align:center;color:#91a29a;font-size:8px;border-top:1px solid #f0f3f1}
-@media(max-width:600px){.ai-fab{right:14px;bottom:14px}.ai-chat{right:10px;bottom:72px;width:calc(100vw - 20px);height:min(560px,calc(100vh - 92px))}}
+
+.ai-chat-head{
+  padding:14px 15px;background:linear-gradient(135deg,#0d5134,#166534);
+  color:#fff;display:flex;align-items:center;justify-content:space-between;
+}
+.ai-chat-title{display:flex;align-items:center;gap:10px;min-width:0}
+.ai-avatar{
+  width:40px;height:40px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:#fff;color:#0d5134;font-weight:800;font-size:18px;flex:none;
+}
+.ai-chat-title strong{display:block;font-size:13px}
+.ai-chat-title span{display:block;font-size:9px;opacity:.8;margin-top:3px}
+.ai-status{display:flex;align-items:center;gap:5px;font-size:9px;opacity:.85;margin-top:4px}
+.ai-status-dot{width:6px;height:6px;border-radius:50%;background:#66e39a}
+.ai-head-actions{display:flex;align-items:center;gap:4px}
+.ai-head-btn{
+  width:32px;height:32px;border:0;border-radius:9px;
+  background:rgba(255,255,255,.10);color:#fff;
+  cursor:pointer;font-size:14px;
+}
+.ai-head-btn:hover{background:rgba(255,255,255,.18)}
+.ai-head-btn:focus-visible{outline:2px solid #fff;outline-offset:2px}
+
+.ai-chat-body{
+  flex:1;overflow:auto;padding:17px 13px 12px;background:#f7faf8;
+  scroll-behavior:smooth;
+}
+.ai-chat-body::-webkit-scrollbar{width:6px}
+.ai-chat-body::-webkit-scrollbar-thumb{background:#cfe1d8;border-radius:99px}
+
+.ai-message{display:flex;margin-bottom:13px;animation:aiIn .18s ease}
+@keyframes aiIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.ai-message-bot{justify-content:flex-start}
+.ai-message-user{justify-content:flex-end}
+.ai-bubble{
+  max-width:88%;padding:11px 12px;border-radius:15px 15px 15px 4px;
+  background:#fff;border:1px solid #e0ebe5;color:#234536;
+  font-size:11px;line-height:1.65;overflow-wrap:anywhere;
+}
+.ai-message-user .ai-bubble{
+  background:#0d5134;color:#fff;border:0;border-radius:15px 15px 4px 15px;
+}
+.ai-time{
+  font-size:8px;color:#91a29a;margin:4px 3px 0;
+}
+.ai-message-user .ai-time{text-align:right}
+.ai-bubble p{margin:0 0 7px}.ai-bubble p:last-child{margin-bottom:0}
+.ai-bubble ul{margin:5px 0 0 16px;padding:0;list-style:disc}
+.ai-bubble li{margin:3px 0}
+.ai-bubble strong{font-weight:800}
+.ai-copy-btn{
+  margin-top:7px;border:0;background:transparent;color:#5e776b;
+  font-size:9px;cursor:pointer;padding:0;
+}
+.ai-copy-btn:hover{color:#0d5134}
+
+.ai-suggestions{
+  display:flex;flex-wrap:wrap;gap:7px;margin:3px 0 14px;
+}
+.ai-suggestions button{
+  border:1px solid #cfe1d8;background:#fff;color:#0d5134;
+  border-radius:999px;padding:8px 10px;font-size:9px;
+  cursor:pointer;transition:.15s ease;
+}
+.ai-suggestions button:hover{background:#eaf6ee;transform:translateY(-1px)}
+
+.ai-typing{
+  display:inline-flex!important;align-items:center;gap:4px;
+  min-width:48px;
+}
+.ai-typing span{
+  width:5px;height:5px;border-radius:50%;background:#75a18c;
+  animation:aiDot 1s infinite ease-in-out;
+}
+.ai-typing span:nth-child(2){animation-delay:.15s}
+.ai-typing span:nth-child(3){animation-delay:.3s}
+@keyframes aiDot{0%,70%,100%{transform:translateY(0);opacity:.45}35%{transform:translateY(-4px);opacity:1}}
+
+.ai-chat-foot{
+  display:flex;gap:8px;padding:10px;border-top:1px solid #e2ebe6;background:#fff;
+}
+.ai-input-wrap{
+  flex:1;min-width:0;display:flex;align-items:flex-end;
+  border:1px solid #d8e5df;border-radius:13px;background:#fff;
+  transition:border-color .15s,box-shadow .15s;
+}
+.ai-input-wrap:focus-within{
+  border-color:#73b78e;box-shadow:0 0 0 3px rgba(47,166,96,.10);
+}
+.ai-chat-foot textarea{
+  min-width:0;width:100%;max-height:100px;resize:none;
+  border:0;outline:0;background:transparent;
+  padding:10px 11px;font:500 11px Inter,sans-serif;
+  line-height:1.45;color:#18382b;
+}
+.ai-chat-foot textarea::placeholder{color:#91a29a}
+.ai-chat-foot button{
+  width:42px;height:42px;flex:none;border:0;border-radius:12px;
+  background:#c92f36;color:#fff;font-size:15px;cursor:pointer;
+  transition:.15s ease;
+}
+.ai-chat-foot button:hover{background:#a5232a;transform:translateY(-1px)}
+.ai-chat-foot button:disabled{opacity:.55;cursor:not-allowed;transform:none}
+.ai-disclaimer{
+  padding:6px 8px;text-align:center;color:#91a29a;font-size:8px;
+  border-top:1px solid #f0f3f1;background:#fff;
+}
+.ai-error{
+  display:flex;align-items:center;gap:8px;
+  margin:2px 0 12px;padding:9px 10px;
+  border:1px solid #f1d2d3;border-radius:10px;
+  background:#fff6f6;color:#8d2a2f;font-size:9px;line-height:1.5;
+}
+.ai-error button{
+  margin-left:auto;border:1px solid #e4aeb1;background:#fff;
+  color:#8d2a2f;border-radius:8px;padding:5px 7px;font-size:8px;cursor:pointer;
+}
+.ai-empty-note{
+  text-align:center;color:#8aa095;font-size:9px;padding:5px 0 10px;
+}
+
+@media(max-width:600px){
+  .ai-fab{right:14px;bottom:14px}
+  .ai-chat{
+    right:10px;bottom:72px;width:calc(100vw - 20px);
+    height:min(650px,calc(100vh - 88px));border-radius:20px;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .ai-chat,.ai-fab,.ai-message{transition:none;animation:none}
+}
 </style>
 
 </head>
@@ -1640,95 +1795,345 @@ footer .footer-brand .brand-mark img{
 })();
 </script>
 
-<button class="ai-fab" id="aiFab" type="button" aria-label="Buka Asisten AI KDKMP"><span class="ai-fab-icon">✦</span><span>AI KDKMP</span></button>
-<div class="ai-chat" id="aiChat" aria-hidden="true">
+<button class="ai-fab" id="aiFab" type="button" aria-label="Buka Asisten AI KDKMP" aria-expanded="false">
+  <span class="ai-fab-icon">✦</span>
+  <span>AI KDKMP</span>
+  <span class="ai-fab-dot" aria-hidden="true"></span>
+</button>
+
+<div class="ai-chat" id="aiChat" aria-hidden="true" role="dialog" aria-label="Asisten KDKMP Desa Taman Endah">
   <div class="ai-chat-head">
-    <div class="ai-chat-title"><div class="ai-avatar">✦</div><div><strong>Asisten KDKMP</strong><span>Desa Taman Endah</span></div></div>
-    <button class="ai-close" id="aiClose" type="button" aria-label="Tutup Asisten">×</button>
+    <div class="ai-chat-title">
+      <div class="ai-avatar">✦</div>
+      <div>
+        <strong>Asisten KDKMP</strong>
+        <span>Desa Taman Endah</span>
+        <div class="ai-status"><span class="ai-status-dot"></span> Siap membantu</div>
+      </div>
+    </div>
+    <div class="ai-head-actions">
+      <button class="ai-head-btn" id="aiNew" type="button" aria-label="Mulai percakapan baru" title="Chat baru">↻</button>
+      <button class="ai-head-btn" id="aiClose" type="button" aria-label="Tutup Asisten" title="Tutup">×</button>
+    </div>
   </div>
-  <div class="ai-chat-body" id="aiChatBody">
-    <div class="ai-message ai-message-bot"><div class="ai-bubble">Halo! 👋 Saya <strong>Asisten KDKMP Desa Taman Endah</strong>.<br><br>Saya siap membantu menjawab pertanyaan seputar KDKMP.</div></div>
-    <div class="ai-suggestions">
+
+  <div class="ai-chat-body" id="aiChatBody" aria-live="polite">
+    <div class="ai-empty-note" id="aiWelcome">Tanyakan apa saja seputar KDKMP Desa Taman Endah.</div>
+    <div class="ai-suggestions" id="aiSuggestions">
       <button type="button">Apa itu KDKMP?</button>
       <button type="button">Siapa Manager KDKMP?</button>
       <button type="button">Bagaimana cara menjadi anggota?</button>
-      <button type="button">Di mana lokasi KDKMP?</button>
+      <button type="button">Apa saja unit usaha KDKMP?</button>
+      <button type="button">Bagaimana pembagian SHU?</button>
     </div>
   </div>
-  <div class="ai-chat-foot"><input id="aiInput" type="text" placeholder="Tulis pertanyaan..." autocomplete="off"><button id="aiSend" type="button" aria-label="Kirim pertanyaan">➤</button></div>
-  <div class="ai-disclaimer">Asisten AI KDKMP • Jawaban berdasarkan informasi KDKMP yang tersedia.</div>
-</div>
 
+  <div class="ai-chat-foot">
+    <div class="ai-input-wrap">
+      <textarea id="aiInput" rows="1" maxlength="1000"
+        placeholder="Tulis pertanyaan..." autocomplete="off"
+        aria-label="Pertanyaan untuk Asisten KDKMP"></textarea>
+    </div>
+    <button id="aiSend" type="button" aria-label="Kirim pertanyaan" title="Kirim">➤</button>
+  </div>
+  <div class="ai-disclaimer">Asisten AI KDKMP • Informasi dapat berubah sesuai kebijakan dan kondisi koperasi.</div>
+</div>
 
 <script>
 (function(){
   const API_URL = "https://kdkmp-ai.jolehaksimpang.workers.dev/chat";
+  const STORAGE_KEY = "kdkmp_taman_endah_ai_chat_v3";
 
-  const fab=document.getElementById('aiFab');
-  const chat=document.getElementById('aiChat');
-  const close=document.getElementById('aiClose');
-  const input=document.getElementById('aiInput');
-  const send=document.getElementById('aiSend');
-  const body=document.getElementById('aiChatBody');
-  if(!fab || !chat) return;
+  const fab = document.getElementById('aiFab');
+  const chat = document.getElementById('aiChat');
+  const close = document.getElementById('aiClose');
+  const newChat = document.getElementById('aiNew');
+  const input = document.getElementById('aiInput');
+  const send = document.getElementById('aiSend');
+  const body = document.getElementById('aiChatBody');
+  const suggestions = document.getElementById('aiSuggestions');
+  const welcome = document.getElementById('aiWelcome');
 
-  function openChat(){ chat.classList.add('open'); chat.setAttribute('aria-hidden','false'); setTimeout(()=>input?.focus(),150); }
-  function shut(){ chat.classList.remove('open'); chat.setAttribute('aria-hidden','true'); }
+  if(!fab || !chat || !input || !send || !body) return;
 
-  function addMessage(text, user=false){
-    const w=document.createElement('div');
-    w.className='ai-message '+(user?'ai-message-user':'ai-message-bot');
-    const b=document.createElement('div');
-    b.className='ai-bubble';
-    b.textContent=text;
+  let messages = [];
+  let lastQuestion = "";
+
+  function escapeHTML(value){
+    return String(value ?? "")
+      .replace(/&/g,"&amp;")
+      .replace(/</g,"&lt;")
+      .replace(/>/g,"&gt;")
+      .replace(/"/g,"&quot;")
+      .replace(/'/g,"&#039;");
+  }
+
+  function renderText(text){
+    const safe = escapeHTML(text);
+    const lines = safe.split(/\r?\n/);
+    let html = "";
+    let inList = false;
+
+    lines.forEach(line => {
+      const trimmed = line.trim();
+      if(!trimmed){
+        if(inList){ html += "</ul>"; inList = false; }
+        return;
+      }
+
+      const listMatch = trimmed.match(/^[-*•]\s+(.*)$/);
+      if(listMatch){
+        if(!inList){ html += "<ul>"; inList = true; }
+        html += "<li>" + formatInline(listMatch[1]) + "</li>";
+      }else{
+        if(inList){ html += "</ul>"; inList = false; }
+        html += "<p>" + formatInline(trimmed) + "</p>";
+      }
+    });
+
+    if(inList) html += "</ul>";
+    return html || "<p>Maaf, saya belum mendapatkan jawaban.</p>";
+  }
+
+  function formatInline(text){
+    return text
+      .replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")
+      .replace(/`(.+?)`/g,"<strong>$1</strong>");
+  }
+
+  function timeNow(){
+    return new Date().toLocaleTimeString("id-ID",{hour:"2-digit",minute:"2-digit"});
+  }
+
+  function scrollBottom(){
+    requestAnimationFrame(()=>{ body.scrollTop = body.scrollHeight; });
+  }
+
+  function addMessage(text, user=false, save=true){
+    const w = document.createElement("div");
+    w.className = "ai-message " + (user ? "ai-message-user" : "ai-message-bot");
+
+    const wrap = document.createElement("div");
+    wrap.style.maxWidth = "88%";
+
+    const b = document.createElement("div");
+    b.className = "ai-bubble";
+    b.innerHTML = renderText(text);
+    wrap.appendChild(b);
+
+    const meta = document.createElement("div");
+    meta.className = "ai-time";
+    meta.textContent = timeNow();
+    wrap.appendChild(meta);
+
+    if(!user){
+      const copy = document.createElement("button");
+      copy.className = "ai-copy-btn";
+      copy.type = "button";
+      copy.textContent = "Salin jawaban";
+      copy.onclick = async () => {
+        try{
+          await navigator.clipboard.writeText(text);
+          copy.textContent = "Tersalin ✓";
+          setTimeout(()=>copy.textContent="Salin jawaban",1200);
+        }catch(e){
+          copy.textContent = "Tidak bisa menyalin";
+        }
+      };
+      wrap.appendChild(copy);
+    }
+
+    w.appendChild(wrap);
+    body.appendChild(w);
+
+    if(save){
+      messages.push({role:user ? "user" : "assistant", text});
+      saveHistory();
+    }
+
+    scrollBottom();
+    return w;
+  }
+
+  function addTyping(){
+    const w = document.createElement("div");
+    w.className = "ai-message ai-message-bot";
+    const b = document.createElement("div");
+    b.className = "ai-bubble ai-typing";
+    b.innerHTML = "<span></span><span></span><span></span>";
     w.appendChild(b);
     body.appendChild(w);
-    body.scrollTop=body.scrollHeight;
+    scrollBottom();
     return w;
   }
 
   function setBusy(busy){
-    send.disabled=busy;
-    input.disabled=busy;
-    send.style.opacity=busy ? '.6' : '1';
+    send.disabled = busy;
+    input.disabled = busy;
+    newChat.disabled = busy;
+    send.setAttribute("aria-busy", busy ? "true" : "false");
+  }
+
+  function openChat(){
+    chat.classList.add("open");
+    chat.setAttribute("aria-hidden","false");
+    fab.setAttribute("aria-expanded","true");
+    setTimeout(()=>input.focus(),150);
+  }
+
+  function shut(){
+    chat.classList.remove("open");
+    chat.setAttribute("aria-hidden","true");
+    fab.setAttribute("aria-expanded","false");
+  }
+
+  function saveHistory(){
+    try{
+      sessionStorage.setItem(STORAGE_KEY, JSON.stringify(messages.slice(-30)));
+    }catch(e){}
+  }
+
+  function loadHistory(){
+    try{
+      const saved = JSON.parse(sessionStorage.getItem(STORAGE_KEY) || "[]");
+      if(!Array.isArray(saved) || !saved.length) return;
+
+      messages = [];
+      saved.forEach(item=>{
+        if(item && (item.role==="user" || item.role==="assistant") && item.text){
+          addMessage(item.text, item.role==="user", false);
+          messages.push(item);
+        }
+      });
+
+      if(welcome) welcome.remove();
+      if(suggestions) suggestions.style.display = "none";
+      scrollBottom();
+    }catch(e){}
+  }
+
+  function clearChat(){
+    messages = [];
+    lastQuestion = "";
+    try{ sessionStorage.removeItem(STORAGE_KEY); }catch(e){}
+
+    body.innerHTML = "";
+    const note = document.createElement("div");
+    note.className = "ai-empty-note";
+    note.id = "aiWelcome";
+    note.textContent = "Percakapan baru. Tanyakan apa saja seputar KDKMP Desa Taman Endah.";
+    body.appendChild(note);
+
+    const chips = document.createElement("div");
+    chips.className = "ai-suggestions";
+    chips.id = "aiSuggestions";
+    [
+      "Apa itu KDKMP?",
+      "Siapa Manager KDKMP?",
+      "Bagaimana cara menjadi anggota?",
+      "Apa saja unit usaha KDKMP?",
+      "Bagaimana pembagian SHU?"
+    ].forEach(q=>{
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.textContent = q;
+      btn.onclick = ()=>sendMessage(q);
+      chips.appendChild(btn);
+    });
+    body.appendChild(chips);
+    input.value = "";
+    autoResize();
+    input.focus();
+  }
+
+  function autoResize(){
+    input.style.height = "auto";
+    input.style.height = Math.min(input.scrollHeight,100) + "px";
   }
 
   async function sendMessage(text){
-    text=(text||'').trim();
+    text = (text || "").trim();
     if(!text || send.disabled) return;
 
+    lastQuestion = text;
     addMessage(text,true);
-    input.value='';
+    input.value = "";
+    autoResize();
     setBusy(true);
-    const typing=addMessage('Sedang mencari jawaban…',false);
-    typing.querySelector('.ai-bubble').classList.add('ai-typing');
+
+    const typing = addTyping();
 
     try{
-      const res=await fetch(API_URL,{
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({message:text})
+      const history = messages
+        .slice(-12)
+        .map(m=>({role:m.role,text:m.text}));
+
+      const res = await fetch(API_URL,{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({
+          message:text,
+          history:history
+        })
       });
-      const data=await res.json().catch(()=>({}));
+
+      const data = await res.json().catch(()=>({}));
       typing.remove();
 
-      if(!res.ok) throw new Error(data.error || 'Server AI tidak dapat dihubungi.');
-      addMessage(data.answer || 'Maaf, saya belum mendapatkan jawaban.',false);
+      if(!res.ok){
+        throw new Error(data.error || "Server AI tidak dapat dihubungi.");
+      }
+
+      const answer = data.answer || data.message || "Maaf, saya belum mendapatkan jawaban.";
+      if(suggestions) suggestions.style.display = "none";
+      if(welcome) welcome.remove();
+      addMessage(answer,false);
     }catch(err){
       typing.remove();
-      addMessage('Maaf, Asisten KDKMP sedang tidak dapat dihubungi. Silakan coba lagi atau hubungi pengurus melalui WhatsApp.',false);
-      console.error(err);
+
+      const errorBox = document.createElement("div");
+      errorBox.className = "ai-error";
+      errorBox.innerHTML =
+        "<span>⚠️ Terjadi kendala saat menghubungi Asisten AI.</span>" +
+        "<button type='button'>Coba lagi</button>";
+
+      errorBox.querySelector("button").onclick = ()=>{
+        errorBox.remove();
+        sendMessage(lastQuestion);
+      };
+
+      body.appendChild(errorBox);
+      scrollBottom();
+      console.error("KDKMP AI:",err);
     }finally{
       setBusy(false);
       input.focus();
     }
   }
 
-  fab.onclick=()=>chat.classList.contains('open')?shut():openChat();
-  close.onclick=shut;
-  send.onclick=()=>sendMessage(input.value);
-  input.onkeydown=e=>{if(e.key==='Enter')sendMessage(input.value)};
-  body.querySelectorAll('.ai-suggestions button').forEach(b=>b.onclick=()=>sendMessage(b.textContent));
+  fab.addEventListener("click",()=>chat.classList.contains("open") ? shut() : openChat());
+  close.addEventListener("click",shut);
+  newChat.addEventListener("click",clearChat);
+  send.addEventListener("click",()=>sendMessage(input.value));
+
+  input.addEventListener("input",autoResize);
+  input.addEventListener("keydown",e=>{
+    if(e.key === "Enter" && !e.shiftKey){
+      e.preventDefault();
+      sendMessage(input.value);
+    }
+  });
+
+  suggestions?.querySelectorAll("button").forEach(btn=>{
+    btn.addEventListener("click",()=>sendMessage(btn.textContent));
+  });
+
+  document.addEventListener("keydown",e=>{
+    if(e.key === "Escape" && chat.classList.contains("open")) shut();
+  });
+
+  loadHistory();
+  autoResize();
 })();
 </script>
 
