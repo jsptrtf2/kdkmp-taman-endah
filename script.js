@@ -62,10 +62,40 @@
   const input=document.getElementById('aiInput');
   const send=document.getElementById('aiSend');
   const body=document.getElementById('aiChatBody');
+
   if(!fab || !chat) return;
 
-  function openChat(){ chat.classList.add('open'); chat.setAttribute('aria-hidden','false'); setTimeout(()=>input?.focus(),150); }
-  function shut(){ chat.classList.remove('open'); chat.setAttribute('aria-hidden','true'); }
+  /*
+   * =======================================================
+   * AI CONVERSATION MEMORY
+   * =======================================================
+   *
+   * Menyimpan percakapan selama chat terbuka.
+   * History dikirim ke Worker setiap kali user bertanya.
+   *
+   * Contoh:
+   * User: "Apa itu SHU?"
+   * AI:   "SHU adalah..."
+   * User: "Cara menghitungnya?"
+   *
+   * Worker menerima ketiganya sehingga "nya" dapat dipahami
+   * sebagai SHU.
+   */
+  const conversationHistory = [];
+
+  const MAX_LOCAL_HISTORY = 12;
+  const MAX_LOCAL_TEXT = 1200;
+
+  function openChat(){
+    chat.classList.add('open');
+    chat.setAttribute('aria-hidden','false');
+    setTimeout(()=>input?.focus(),150);
+  }
+
+  function shut(){
+    chat.classList.remove('open');
+    chat.setAttribute('aria-hidden','true');
+  }
 
   function escapeHTML(text){
     return String(text ?? '')
@@ -76,15 +106,40 @@
       .replace(/'/g,'&#039;');
   }
 
+  /*
+   * Markdown sederhana.
+   *
+   * Penting:
+   * Rumus LaTeX tidak diubah menjadi HTML biasa.
+   * MathJax akan merendernya setelah bubble dibuat.
+   */
   function formatAIInline(text){
     return text
       .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
-      .replace(/`(.+?)`/g,'<code>$1</code>');
+      .replace(/`([^`]+)`/g,'<code>$1</code>');
   }
 
   function renderAIText(text){
     const safe=escapeHTML(text);
-    const lines=safe.split(/\r?\n/);
+
+    /*
+     * Lindungi blok matematika agar tidak rusak oleh
+     * parser baris sederhana.
+     */
+    const mathBlocks=[];
+    const mathPlaceholder='___KDKMP_MATH_BLOCK_';
+
+    let protectedText=safe.replace(
+      /\$\$([\s\S]*?)\$\$/g,
+      function(match){
+        const index=mathBlocks.length;
+        mathBlocks.push(match);
+        return mathPlaceholder+index+'___';
+      }
+    );
+
+    const lines=protectedText.split(/\r?\n/);
+
     let html='';
     let inList=false;
 
@@ -92,124 +147,344 @@
       const trimmed=line.trim();
 
       if(!trimmed){
-        if(inList){ html+='</ul>'; inList=false; }
+        if(inList){
+          html+='</ul>';
+          inList=false;
+        }
         return;
       }
 
       const listMatch=trimmed.match(/^[-*•]\s+(.*)$/);
 
       if(listMatch){
-        if(!inList){ html+='<ul>'; inList=true; }
+        if(!inList){
+          html+='<ul>';
+          inList=true;
+        }
+
         html+='<li>'+formatAIInline(listMatch[1])+'</li>';
+
       }else{
-        if(inList){ html+='</ul>'; inList=false; }
-        html+='<p>'+formatAIInline(trimmed)+'</p>';
+
+        if(inList){
+          html+='</ul>';
+          inList=false;
+        }
+
+        /*
+         * Jika satu baris berisi blok matematika,
+         * bungkus dengan div agar MathJax dapat merendernya.
+         */
+        if(
+          trimmed.startsWith(mathPlaceholder) &&
+          trimmed.endsWith('___')
+        ){
+          html+='<div class="ai-math">'+formatAIInline(trimmed)+'</div>';
+        }else{
+          html+='<p>'+formatAIInline(trimmed)+'</p>';
+        }
       }
     });
 
     if(inList) html+='</ul>';
+
+    /*
+     * Kembalikan LaTeX yang sudah dilindungi.
+     */
+    mathBlocks.forEach((block,index)=>{
+      html=html.replace(
+        mathPlaceholder+index+'___',
+        block
+      );
+    });
+
     return html || '<p>Maaf, saya belum mendapatkan jawaban.</p>';
   }
 
-  // MathJax dimuat secara defer, sehingga jawaban AI kadang bisa masuk
-  // sebelum MathJax selesai dimuat. Tunggu sampai siap sebelum typeset.
-  let mathJaxReady = null;
-  function waitForMathJax(){
-    if(window.MathJax?.startup?.promise){
-      return window.MathJax.startup.promise;
-    }
-    if(mathJaxReady) return mathJaxReady;
-    mathJaxReady = new Promise(resolve=>{
-      const started=Date.now();
-      const check=()=>{
-        if(window.MathJax?.typesetPromise){
-          if(window.MathJax.startup?.promise){
-            window.MathJax.startup.promise.then(resolve).catch(resolve);
-          }else{
-            resolve();
-          }
-          return;
-        }
-        if(Date.now()-started > 10000){ resolve(); return; }
-        setTimeout(check,100);
-      };
-      check();
-    });
-    return mathJaxReady;
-  }
+  /*
+   * Render ulang MathJax setelah bubble ditambahkan.
+   */
+  async function typesetMath(element){
 
-  function typesetMath(element){
-    waitForMathJax().then(()=>{
-      if(window.MathJax?.typesetPromise){
-        return window.MathJax.typesetPromise([element]);
+    if(
+      window.MathJax &&
+      typeof window.MathJax.typesetPromise === 'function'
+    ){
+      try{
+        await window.MathJax.typesetPromise([element]);
+      }catch(error){
+        console.warn('MathJax render error:',error);
       }
-    }).catch(err=>console.warn('MathJax:', err));
+    }
   }
 
-  function addMessage(text, user=false){
+  function addMessage(text,user=false){
+
     const w=document.createElement('div');
-    w.className='ai-message '+(user?'ai-message-user':'ai-message-bot');
+
+    w.className=
+      'ai-message '+
+      (user?'ai-message-user':'ai-message-bot');
+
     const b=document.createElement('div');
+
     b.className='ai-bubble';
 
     if(user){
       b.textContent=text;
     }else{
       b.innerHTML=renderAIText(text);
+
+      /*
+       * MathJax berjalan setelah DOM selesai dibuat.
+       */
+      typesetMath(b);
     }
 
     w.appendChild(b);
+
     body.appendChild(w);
 
-    // Pastikan semua rumus LaTeX dirender setelah MathJax benar-benar siap.
-    if(!user) typesetMath(b);
-
     body.scrollTop=body.scrollHeight;
+
     return w;
   }
 
   function setBusy(busy){
+
     send.disabled=busy;
     input.disabled=busy;
-    send.style.opacity=busy ? '.6' : '1';
+
+    send.style.opacity=
+      busy ? '.6' : '1';
   }
 
-  async function sendMessage(text){
-    text=(text||'').trim();
-    if(!text || send.disabled) return;
+  /*
+   * Menambahkan pesan ke memory lokal.
+   */
+  function addToHistory(role,text){
 
-    addMessage(text,true);
-    input.value='';
-    setBusy(true);
-    const typing=addMessage('Sedang mencari jawaban…',false);
-    typing.querySelector('.ai-bubble').classList.add('ai-typing');
+    if(
+      !text ||
+      typeof text !== 'string'
+    ){
+      return;
+    }
 
-    try{
-      const res=await fetch(API_URL,{
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({message:text})
-      });
-      const data=await res.json().catch(()=>({}));
-      typing.remove();
+    conversationHistory.push({
+      role,
+      text:text.trim().slice(0,MAX_LOCAL_TEXT)
+    });
 
-      if(!res.ok) throw new Error(data.error || 'Server AI tidak dapat dihubungi.');
-      addMessage(data.answer || 'Maaf, saya belum mendapatkan jawaban.',false);
-    }catch(err){
-      typing.remove();
-      addMessage('Maaf, Asisten KDKMP sedang tidak dapat dihubungi. Silakan coba lagi atau hubungi pengurus melalui WhatsApp.',false);
-      console.error(err);
-    }finally{
-      setBusy(false);
-      input.focus();
+    /*
+     * Simpan hanya pesan terbaru.
+     */
+    while(
+      conversationHistory.length >
+      MAX_LOCAL_HISTORY
+    ){
+      conversationHistory.shift();
     }
   }
 
-  fab.onclick=()=>chat.classList.contains('open')?shut():openChat();
+  /*
+   * Ambil history yang akan dikirim ke Worker.
+   *
+   * Kita tidak mengirim object DOM atau data lain,
+   * hanya role + text.
+   */
+  function getHistory(){
+
+    return conversationHistory
+      .slice(-MAX_LOCAL_HISTORY)
+      .map(item=>({
+        role:item.role,
+        text:item.text
+      }));
+  }
+
+  async function sendMessage(text){
+
+    text=(text||'').trim();
+
+    if(
+      !text ||
+      send.disabled
+    ){
+      return;
+    }
+
+    /*
+     * Simpan pertanyaan USER terlebih dahulu.
+     */
+    addToHistory('user',text);
+
+    addMessage(text,true);
+
+    input.value='';
+
+    setBusy(true);
+
+    const typing=
+      addMessage(
+        'Sedang mencari jawaban…',
+        false
+      );
+
+    typing
+      .querySelector('.ai-bubble')
+      ?.classList.add('ai-typing');
+
+
+    try{
+
+      const res=
+        await fetch(
+          API_URL,
+          {
+            method:'POST',
+
+            headers:{
+              'Content-Type':
+                'application/json'
+            },
+
+            body:
+              JSON.stringify({
+
+                message:text,
+
+                /*
+                 * INI BAGIAN PENTING.
+                 *
+                 * History percakapan dikirim
+                 * ke Cloudflare Worker.
+                 */
+                history:getHistory()
+
+              })
+          }
+        );
+
+
+      const data=
+        await res
+          .json()
+          .catch(()=>({}));
+
+
+      typing.remove();
+
+
+      if(!res.ok){
+
+        throw new Error(
+          data.error ||
+          'Server AI tidak dapat dihubungi.'
+        );
+
+      }
+
+
+      const answer=
+        data.answer ||
+        'Maaf, saya belum mendapatkan jawaban.';
+
+
+      /*
+       * Simpan jawaban AI ke conversation memory.
+       */
+      addToHistory(
+        'model',
+        answer
+      );
+
+
+      /*
+       * Tampilkan jawaban AI.
+       */
+      addMessage(
+        answer,
+        false
+      );
+
+
+    }catch(err){
+
+      typing.remove();
+
+
+      /*
+       * Jika request gagal, hapus user message
+       * terakhir dari history agar tidak menyebabkan
+       * konteks rusak pada request berikutnya.
+       */
+      const last=
+        conversationHistory[
+          conversationHistory.length-1
+        ];
+
+      if(
+        last &&
+        last.role==='user' &&
+        last.text===text
+      ){
+        conversationHistory.pop();
+      }
+
+
+      addMessage(
+        'Maaf, Asisten KDKMP sedang tidak dapat dihubungi. Silakan coba lagi atau hubungi pengurus melalui WhatsApp.',
+        false
+      );
+
+
+      console.error(err);
+
+
+    }finally{
+
+      setBusy(false);
+
+      input.focus();
+
+    }
+
+  }
+
+
+  fab.onclick=
+    ()=>
+      chat.classList.contains('open')
+        ? shut()
+        : openChat();
+
+
   close.onclick=shut;
-  send.onclick=()=>sendMessage(input.value);
-  input.onkeydown=e=>{if(e.key==='Enter')sendMessage(input.value)};
-  body.querySelectorAll('.ai-suggestions button').forEach(b=>b.onclick=()=>sendMessage(b.textContent));
+
+
+  send.onclick=
+    ()=>sendMessage(input.value);
+
+
+  input.onkeydown=
+    e=>{
+      if(e.key==='Enter'){
+        sendMessage(input.value);
+      }
+    };
+
+
+  body
+    .querySelectorAll(
+      '.ai-suggestions button'
+    )
+    .forEach(
+      b=>
+        b.onclick=
+          ()=>sendMessage(b.textContent)
+    );
+
 })();
 
 (function(){
