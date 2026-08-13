@@ -289,3 +289,45 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 })();
+
+/* =========================================================
+   V1.5 — OFFICIAL PROFILE COUNTERS
+   ========================================================= */
+(function(){
+  const counters=[...document.querySelectorAll('[data-count]')];
+  if(!counters.length) return;
+
+  const formatNumber=(value, decimals)=>{
+    return new Intl.NumberFormat('id-ID',{minimumFractionDigits:decimals,maximumFractionDigits:decimals}).format(value);
+  };
+
+  const animate=(el)=>{
+    if(el.dataset.counted==='true') return;
+    el.dataset.counted='true';
+    const target=Number(el.dataset.count||0);
+    const decimals=Number(el.dataset.decimals||0);
+    const suffix=el.dataset.suffix||'';
+    const duration=900;
+    const start=performance.now();
+
+    const tick=(now)=>{
+      const progress=Math.min((now-start)/duration,1);
+      const eased=1-Math.pow(1-progress,3);
+      el.textContent=formatNumber(target*eased,decimals)+suffix;
+      if(progress<1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+
+  if('IntersectionObserver' in window){
+    const observer=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          animate(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    },{threshold:.35});
+    counters.forEach(el=>observer.observe(el));
+  }else counters.forEach(animate);
+})();
