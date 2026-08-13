@@ -2701,3 +2701,24 @@ html.dark-mode .manager-highlight span {
 html.dark-mode .about-feature span {
   color: #d7eee0 !important;
 }
+
+
+/* =========================================================
+   PROFIL RESMI — CENTERED SECTION HEADINGS
+   Menyamakan posisi judul Identitas, Pengelola,
+   Tata Kelola, Struktur Organisasi, dan Pengawas.
+   Isi/data tetap rata kiri agar mudah dibaca.
+   ========================================================= */
+.official-card > .eyebrow,
+.official-card > h3,
+.structure-card > .eyebrow,
+.structure-card > h3,
+.structure-head .eyebrow,
+.structure-head h3 {
+  text-align: center;
+}
+
+.structure-head > div {
+  width: 100%;
+}
+
