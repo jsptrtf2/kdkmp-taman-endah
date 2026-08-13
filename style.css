@@ -2633,3 +2633,36 @@ html.dark-mode .manager-highlight span {
     padding-top: 8px !important;
   }
 }
+
+
+/* =========================================================
+   V1.6.3 — HERO TOP GAP FINAL ADJUSTMENT
+   Mengurangi ruang kosong antara navbar dan badge Portal Resmi.
+   ========================================================= */
+
+/* Desktop / layar besar */
+.hero {
+  padding-top: 90px !important;
+}
+
+/* Tablet */
+@media (max-width: 1100px) {
+  .hero {
+    padding-top: 78px !important;
+  }
+
+  .hero .container {
+    padding-top: 0 !important;
+  }
+}
+
+/* HP */
+@media (max-width: 600px) {
+  .hero {
+    padding-top: 58px !important;
+  }
+
+  .hero .container {
+    padding-top: 0 !important;
+  }
+}
