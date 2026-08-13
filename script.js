@@ -144,6 +144,18 @@
         font-size:1.03em;
       }
 
+      .ai-bubble .ai-heading-4{
+        font-size:1em;
+      }
+
+      .ai-bubble .ai-heading-5{
+        font-size:.97em;
+      }
+
+      .ai-bubble .ai-heading-6{
+        font-size:.94em;
+      }
+
       .ai-bubble .ai-list{
         margin:6px 0 10px;
         padding-left:22px;
@@ -379,7 +391,7 @@
        * ### Judul
        */
       const heading=
-        trimmed.match(/^(#{1,3})\s+(.+)$/);
+        trimmed.match(/^(#{1,6})\s+(.+)$/);
 
 
       if(heading){
