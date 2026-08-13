@@ -2830,3 +2830,8 @@ html.dark-mode .about-feature span {
   .registration-steps { margin-top: 16px; }
   .registration-step { padding: 10px 12px; }
 }
+
+/* MathJax pada jawaban Asisten AI */
+.ai-bubble mjx-container { max-width: 100%; overflow-x: auto; overflow-y: hidden; }
+.ai-bubble mjx-container[display="true"] { margin: .65em 0 !important; }
+.ai-bubble mjx-container[jax="CHTML"] { outline: none; }

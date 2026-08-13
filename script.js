@@ -111,6 +111,41 @@
     return html || '<p>Maaf, saya belum mendapatkan jawaban.</p>';
   }
 
+  // MathJax dimuat secara defer, sehingga jawaban AI kadang bisa masuk
+  // sebelum MathJax selesai dimuat. Tunggu sampai siap sebelum typeset.
+  let mathJaxReady = null;
+  function waitForMathJax(){
+    if(window.MathJax?.startup?.promise){
+      return window.MathJax.startup.promise;
+    }
+    if(mathJaxReady) return mathJaxReady;
+    mathJaxReady = new Promise(resolve=>{
+      const started=Date.now();
+      const check=()=>{
+        if(window.MathJax?.typesetPromise){
+          if(window.MathJax.startup?.promise){
+            window.MathJax.startup.promise.then(resolve).catch(resolve);
+          }else{
+            resolve();
+          }
+          return;
+        }
+        if(Date.now()-started > 10000){ resolve(); return; }
+        setTimeout(check,100);
+      };
+      check();
+    });
+    return mathJaxReady;
+  }
+
+  function typesetMath(element){
+    waitForMathJax().then(()=>{
+      if(window.MathJax?.typesetPromise){
+        return window.MathJax.typesetPromise([element]);
+      }
+    }).catch(err=>console.warn('MathJax:', err));
+  }
+
   function addMessage(text, user=false){
     const w=document.createElement('div');
     w.className='ai-message '+(user?'ai-message-user':'ai-message-bot');
@@ -126,10 +161,8 @@
     w.appendChild(b);
     body.appendChild(w);
 
-    // Render rumus LaTeX/TeX dari jawaban AI menggunakan MathJax.
-    if(!user && window.MathJax?.typesetPromise){
-      window.MathJax.typesetPromise([b]).catch(err=>console.warn('MathJax:', err));
-    }
+    // Pastikan semua rumus LaTeX dirender setelah MathJax benar-benar siap.
+    if(!user) typesetMath(b);
 
     body.scrollTop=body.scrollHeight;
     return w;
