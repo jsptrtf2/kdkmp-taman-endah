@@ -38,10 +38,6 @@
   if(year) year.textContent = new Date().getFullYear();
 })();
 
-/* =========================================================
-   JavaScript dipisahkan dari index.html
-   ========================================================= */
-
 (function(){
   const API_URL = "https://kdkmp-ai.jolehaksimpang.workers.dev/chat";
 
@@ -161,10 +157,6 @@
   input.onkeydown=e=>{if(e.key==='Enter')sendMessage(input.value)};
   body.querySelectorAll('.ai-suggestions button').forEach(b=>b.onclick=()=>sendMessage(b.textContent));
 })();
-
-/* =========================================================
-   JavaScript dipisahkan dari index.html
-   ========================================================= */
 
 (function(){
   document.querySelectorAll('.faq5-q').forEach(btn=>{

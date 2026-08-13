@@ -1123,10 +1123,6 @@
   .faq5-ask{align-items:flex-start;flex-direction:column}
 }
 
-/* =========================================================
-   CSS dipisahkan dari index.html
-   ========================================================= */
-
 /* V3 FINAL — public member-facing website */
 html{scroll-behavior:smooth}
 section{scroll-margin-top:76px}
@@ -1145,17 +1141,9 @@ section{scroll-margin-top:76px}
 }
 .v3-note{margin-top:18px;padding:13px 15px;border:1px dashed var(--border);border-radius:12px;background:var(--green-50);color:var(--ink-soft);font-size:11px;line-height:1.6}
 
-/* =========================================================
-   CSS dipisahkan dari index.html
-   ========================================================= */
-
 /* V3 FINAL PATCH */
 .section{visibility:visible;}
 @media(max-width:900px){.nav-links.open{display:flex;}}
-
-/* =========================================================
-   CSS dipisahkan dari index.html
-   ========================================================= */
 
 /* Logo KDKMP Desa Taman Endah */
 .brand-logo-wrap{
@@ -1165,10 +1153,6 @@ section{scroll-margin-top:76px}
 .brand-logo{
   width:100%;height:100%;object-fit:contain;display:block;
 }
-
-/* =========================================================
-   CSS dipisahkan dari index.html
-   ========================================================= */
 
 /* Final official KDKMP logo */
 .brand-logo-wrap{
@@ -1190,10 +1174,6 @@ section{scroll-margin-top:76px}
   .footer-logo{width:40px;height:40px}
 }
 
-/* =========================================================
-   CSS dipisahkan dari index.html
-   ========================================================= */
-
 /* Clean footer logo */
 footer .footer-brand .brand-mark{
   width:48px;height:48px;min-width:48px;
@@ -1207,10 +1187,6 @@ footer .footer-brand .brand-mark img{
 @media(max-width:600px){
   footer .footer-brand .brand-mark{width:42px;height:42px;min-width:42px}
 }
-
-/* =========================================================
-   CSS dipisahkan dari index.html
-   ========================================================= */
 
 /* Official profile content — KDKMP Desa Taman Endah */
 .v3-official{background:#f6faf7}
@@ -1240,10 +1216,6 @@ footer .footer-brand .brand-mark img{
 @media(max-width:900px){.official-stats{grid-template-columns:repeat(3,1fr)}.official-grid{grid-template-columns:1fr}.people-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.official-stats{grid-template-columns:repeat(2,1fr)}.official-list li{grid-template-columns:1fr;gap:4px}.people-grid,.supervisors{grid-template-columns:1fr 1fr}.official-card{padding:17px}}
 
-/* =========================================================
-   CSS dipisahkan dari index.html
-   ========================================================= */
-
 /* Foto pengelola — upload JPG sesuai nama file di folder foto/ */
 .manager-avatar{
   width:58px!important;height:58px!important;border-radius:50%!important;
@@ -1264,10 +1236,6 @@ footer .footer-brand .brand-mark img{
 @media(max-width:600px){
   .person img{width:70px;height:70px}
 }
-
-/* =========================================================
-   CSS dipisahkan dari index.html
-   ========================================================= */
 
 /* Pengawas layout fix */
 .supervisors{
@@ -1301,10 +1269,6 @@ footer .footer-brand .brand-mark img{
   }
 }
 
-/* =========================================================
-   CSS dipisahkan dari index.html
-   ========================================================= */
-
 .ai-fab{position:fixed;right:22px;bottom:22px;z-index:9998;border:0;border-radius:999px;padding:12px 17px 12px 13px;display:flex;align-items:center;gap:8px;background:#0d5134;color:#fff;font:700 12px 'Plus Jakarta Sans',sans-serif;box-shadow:0 12px 30px rgba(4,54,34,.25);cursor:pointer}
 .ai-fab-icon{width:34px;height:34px;border-radius:50%;display:block;object-fit:cover;object-position:center;background:#fff;border:2px solid rgba(255,255,255,.9);box-sizing:border-box;flex:0 0 34px}
 .ai-chat{position:fixed;right:22px;bottom:82px;z-index:9999;width:min(380px,calc(100vw - 28px));height:min(570px,calc(100vh - 105px));background:#fff;border:1px solid #dce8e1;border-radius:20px;box-shadow:0 22px 65px rgba(4,54,34,.22);overflow:hidden;display:flex;flex-direction:column;opacity:0;transform:translateY(16px) scale(.98);pointer-events:none;transition:.2s}
@@ -1325,10 +1289,6 @@ footer .footer-brand .brand-mark img{
 .ai-chat-foot{display:flex;gap:8px;padding:10px;border-top:1px solid #e2ebe6}.ai-chat-foot input{min-width:0;flex:1;border:1px solid #d8e5df;border-radius:12px;padding:10px;font-size:11px;outline:0}.ai-chat-foot button{width:40px;border:0;border-radius:12px;background:#c92f36;color:#fff;font-size:15px;cursor:pointer}.ai-disclaimer{padding:6px;text-align:center;color:#91a29a;font-size:8px;border-top:1px solid #f0f3f1}
 @media(max-width:600px){.ai-fab{right:14px;bottom:14px}.ai-chat{right:10px;bottom:72px;width:calc(100vw - 20px);height:min(560px,calc(100vh - 92px))}}
 
-/* =========================================================
-   CSS dipisahkan dari index.html
-   ========================================================= */
-
 /* Avatar Asisten AI KDKMP */
 .ai-fab-icon,
 .ai-avatar{
@@ -1339,10 +1299,6 @@ footer .footer-brand .brand-mark img{
   .ai-fab-icon{width:32px;height:32px;flex-basis:32px}
   .ai-avatar{width:40px;height:40px;flex-basis:40px}
 }
-
-/* =========================================================
-   CSS dipisahkan dari index.html
-   ========================================================= */
 
 /* =========================================================
    FINAL FIX — MENU HP KDKMP
