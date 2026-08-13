@@ -198,7 +198,7 @@
     position:relative;
     background:linear-gradient(165deg,var(--green-900) 0%, var(--green-700) 58%, var(--green-600) 100%);
     color:var(--white);
-    padding:110px 0 0;
+    padding:170px 0 0;
     overflow:hidden;
   }
   .hero-grain{
@@ -2613,6 +2613,27 @@ html.dark-mode .manager-highlight span {
 }
 
 
+/* =========================================================
+   V1.6.2 — HERO TOP SPACING
+   Badge "Portal Resmi KDKMP" dibuat lebih dekat ke navbar.
+   ========================================================= */
+
+.hero .container {
+  padding-top: clamp(10px, 2.5vw, 28px) !important;
+}
+
+@media (max-width: 1100px) {
+  .hero .container {
+    padding-top: 10px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero .container {
+    padding-top: 8px !important;
+  }
+}
+
 
 /* =========================================================
    V1.6.3 — HERO TOP GAP FINAL ADJUSTMENT
@@ -2648,12 +2669,15 @@ html.dark-mode .manager-highlight span {
 
 
 /* =========================================================
-   V1.6.5 — FINAL HERO SPACING
-   Satu aturan utama untuk jarak navbar → Portal Resmi KDKMP.
+   V1.6.8 — HERO GAP FIX
+   Mode HP normal tetap 72px.
+   Mode "Situs Desktop" di HP/tablet dibuat lebih lega.
    ========================================================= */
+
+/* Desktop/tablet / Chrome HP dengan "Situs Desktop" */
 @media (max-width:1100px) {
   .hero {
-    padding-top: 110px !important;
+    padding-top: 150px !important;
   }
 
   .hero .container {
@@ -2661,6 +2685,7 @@ html.dark-mode .manager-highlight span {
   }
 }
 
+/* HP normal */
 @media (max-width:600px) {
   .hero {
     padding-top: 72px !important;
