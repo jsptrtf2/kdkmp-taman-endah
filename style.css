@@ -1283,6 +1283,8 @@ footer .footer-brand .brand-mark img{
 .ai-bubble li{margin:3px 0;}
 .ai-bubble strong{font-weight:800;}
 .ai-bubble code{font-family:monospace;background:#eef4f0;padding:1px 4px;border-radius:4px;font-size:.95em;}
+.ai-bubble mjx-container{max-width:100%;overflow-x:auto;overflow-y:hidden;margin:.55em 0 !important;}
+.ai-bubble mjx-container[display="true"]{display:block;padding:2px 0;}
 .ai-message-user .ai-bubble code{background:rgba(255,255,255,.14);}
 
 .ai-suggestions{display:flex;flex-wrap:wrap;gap:7px}.ai-suggestions button{border:1px solid #cfe1d8;background:#fff;color:#0d5134;border-radius:999px;padding:8px 10px;font-size:9px;cursor:pointer}

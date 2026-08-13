@@ -125,6 +125,12 @@
 
     w.appendChild(b);
     body.appendChild(w);
+
+    // Render rumus LaTeX/TeX dari jawaban AI menggunakan MathJax.
+    if(!user && window.MathJax?.typesetPromise){
+      window.MathJax.typesetPromise([b]).catch(err=>console.warn('MathJax:', err));
+    }
+
     body.scrollTop=body.scrollHeight;
     return w;
   }
