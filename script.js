@@ -270,3 +270,22 @@
 
   sections.forEach(section => observer.observe(section));
 })();
+
+/* =========================================================
+   V1.4 — BACK TO TOP
+   ========================================================= */
+(function () {
+  const button = document.getElementById('backToTop');
+  if (!button) return;
+
+  const update = () => {
+    button.classList.toggle('show', window.scrollY > 520);
+  };
+
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+
+  button.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
