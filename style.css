@@ -2722,3 +2722,71 @@ html.dark-mode .about-feature span {
   width: 100%;
 }
 
+
+
+/* =========================================================
+   KDKMP — FINAL CENTERING FIX
+   Heading profil dibuat benar-benar rata tengah.
+   Isi/data tetap mengikuti alignment sebelumnya.
+   ========================================================= */
+
+/* IDENTITAS & PENGELOLA */
+.v3-official .official-grid > .official-card > .eyebrow,
+.v3-official .official-grid > .official-card > h3 {
+  display: block !important;
+  width: 100% !important;
+  text-align: center !important;
+}
+
+/* TATA KELOLA */
+.v3-official .governance-overview .governance-title {
+  width: 100% !important;
+  text-align: center !important;
+}
+
+.v3-official .governance-overview .governance-title .eyebrow {
+  display: inline-flex !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+.v3-official .governance-overview .governance-title h3,
+.v3-official .governance-overview .governance-title p {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* STRUKTUR ORGANISASI */
+.v3-official .structure-card .structure-head {
+  display: block !important;
+  width: 100% !important;
+  text-align: center !important;
+}
+
+.v3-official .structure-card .structure-head > div {
+  width: 100% !important;
+  text-align: center !important;
+}
+
+.v3-official .structure-card .structure-head .eyebrow,
+.v3-official .structure-card .structure-head h3 {
+  display: block !important;
+  width: 100% !important;
+  text-align: center !important;
+}
+
+/* PENGAWAS */
+.v3-official .structure-card > .eyebrow,
+.v3-official .structure-card > h3 {
+  display: block !important;
+  width: 100% !important;
+  text-align: center !important;
+}
+
+/* Garis merah + teks eyebrow berada di tengah */
+.v3-official .official-card > .eyebrow,
+.v3-official .structure-card > .eyebrow,
+.v3-official .structure-head .eyebrow {
+  justify-content: center !important;
+}
