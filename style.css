@@ -1396,3 +1396,283 @@ footer .footer-brand .brand-mark img{
   }
 
 }
+
+
+/* =========================================================
+   DARK MODE — KDKMP Taman Endah v1.1
+   ========================================================= */
+html.dark-mode { color-scheme: dark; }
+
+html.dark-mode body { background:#0f1713; color:#edf5ef; }
+html.dark-mode .navbar,
+html.dark-mode .nav-links { background:rgba(15,23,19,.96); }
+html.dark-mode .nav-links a { color:#b7c7bd; }
+html.dark-mode .nav-links a:hover,
+html.dark-mode .nav-links a.active { color:#79c89a; }
+
+html.dark-mode .section,
+html.dark-mode .about,
+html.dark-mode .visimisi,
+html.dark-mode .faq5-section { background:#0f1713; }
+
+html.dark-mode .about-visual,
+html.dark-mode .official-card,
+html.dark-mode .unit-card,
+html.dark-mode .misi-card,
+html.dark-mode .visi-card,
+html.dark-mode .structure-card,
+html.dark-mode .faq5-item,
+html.dark-mode .faq5-intro,
+html.dark-mode .kontak-list li,
+html.dark-mode .kontak-visual {
+  background:#17221c;
+  border-color:rgba(255,255,255,.10);
+  color:#edf5ef;
+}
+
+html.dark-mode .section-title,
+html.dark-mode h1, html.dark-mode h2,
+html.dark-mode h3, html.dark-mode h4,
+html.dark-mode strong { color:#edf5ef; }
+
+html.dark-mode p,
+html.dark-mode .section-desc,
+html.dark-mode .official-list span,
+html.dark-mode .person span,
+html.dark-mode .faq5-a,
+html.dark-mode .faq5-intro p,
+html.dark-mode .kontak-list span { color:#b7c7bd; }
+
+html.dark-mode .official-stat,
+html.dark-mode .about-feature,
+html.dark-mode .faq5-cat,
+html.dark-mode .placeholder-note,
+html.dark-mode .faq5-note {
+  background:#1d2a23;
+  border-color:rgba(255,255,255,.10);
+  color:#b7c7bd;
+}
+
+html.dark-mode .faq5-q { color:#edf5ef; background:transparent; }
+html.dark-mode footer { background:#0a100d; }
+html.dark-mode .footer-links a,
+html.dark-mode .footer-bottom,
+html.dark-mode .footer-brand-text span { color:#b7c7bd; }
+
+.theme-toggle {
+  width:42px; height:42px; display:inline-flex;
+  align-items:center; justify-content:center;
+  border:1px solid var(--border,rgba(0,0,0,.10));
+  border-radius:999px; background:#fff;
+  cursor:pointer; font-size:17px; line-height:1;
+  transition:transform .2s ease,background .2s ease,border-color .2s ease;
+  flex:0 0 auto;
+}
+.theme-toggle:hover { transform:translateY(-1px); }
+.theme-icon-sun { display:inline; }
+.theme-icon-moon { display:none; }
+html.dark-mode .theme-icon-sun { display:none; }
+html.dark-mode .theme-icon-moon { display:inline; }
+html.dark-mode .theme-toggle {
+  background:#17221c;
+  border-color:rgba(255,255,255,.10);
+}
+@media (max-width:760px) {
+  .theme-toggle { width:40px; height:40px; font-size:16px; }
+}
+
+
+/* =========================================================
+   DARK MODE REFINEMENT — Premium UI
+   ========================================================= */
+html.dark-mode body {
+  background:
+    radial-gradient(circle at 10% 0%, rgba(77, 145, 103, .10), transparent 30%),
+    radial-gradient(circle at 90% 20%, rgba(77, 145, 103, .07), transparent 28%),
+    #0b120f;
+}
+
+html.dark-mode .navbar {
+  background: rgba(11, 18, 15, .88);
+  border-bottom-color: rgba(255,255,255,.07);
+  box-shadow: 0 8px 30px rgba(0,0,0,.16);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+html.dark-mode .nav-links {
+  background: transparent;
+}
+
+html.dark-mode .section-title {
+  text-shadow: 0 1px 18px rgba(121,200,154,.05);
+}
+
+html.dark-mode .about-visual,
+html.dark-mode .official-card,
+html.dark-mode .unit-card,
+html.dark-mode .misi-card,
+html.dark-mode .visi-card,
+html.dark-mode .structure-card,
+html.dark-mode .faq5-item,
+html.dark-mode .faq5-intro,
+html.dark-mode .kontak-list li,
+html.dark-mode .kontak-visual {
+  background: linear-gradient(145deg, #17231d 0%, #131e18 100%);
+  box-shadow:
+    0 12px 35px rgba(0,0,0,.18),
+    inset 0 1px 0 rgba(255,255,255,.025);
+  transition:
+    transform .22s ease,
+    box-shadow .22s ease,
+    border-color .22s ease,
+    background .22s ease;
+}
+
+html.dark-mode .unit-card:hover,
+html.dark-mode .official-card:hover,
+html.dark-mode .misi-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(121,200,154,.25);
+  box-shadow:
+    0 18px 42px rgba(0,0,0,.28),
+    0 0 0 1px rgba(121,200,154,.04);
+}
+
+html.dark-mode .official-stat,
+html.dark-mode .about-feature {
+  background: rgba(121,200,154,.055);
+  border-color: rgba(121,200,154,.12);
+}
+
+html.dark-mode .eyebrow {
+  color: #79c89a;
+}
+
+html.dark-mode .faq5-cat {
+  transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+html.dark-mode .faq5-cat:hover {
+  border-color: rgba(121,200,154,.30);
+  color: #edf5ef;
+}
+
+html.dark-mode .faq5-cat.active {
+  background: #2d7650;
+  border-color: #3b8d61;
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(45,118,80,.22);
+}
+
+html.dark-mode .faq5-item.open {
+  border-color: rgba(121,200,154,.22);
+  box-shadow: 0 10px 28px rgba(0,0,0,.16);
+}
+
+html.dark-mode .faq5-icon {
+  color: #79c89a;
+}
+
+html.dark-mode .placeholder-note,
+html.dark-mode .faq5-note {
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.025);
+}
+
+html.dark-mode input,
+html.dark-mode textarea,
+html.dark-mode select {
+  background: #101a15;
+  color: #edf5ef;
+  border-color: rgba(255,255,255,.12);
+}
+
+html.dark-mode input::placeholder,
+html.dark-mode textarea::placeholder {
+  color: #82958a;
+}
+
+html.dark-mode input:focus,
+html.dark-mode textarea:focus,
+html.dark-mode select:focus {
+  border-color: rgba(121,200,154,.55);
+  box-shadow: 0 0 0 3px rgba(121,200,154,.10);
+  outline: none;
+}
+
+html.dark-mode .btn-outline {
+  border-color: rgba(121,200,154,.42);
+  color: #9cddb5;
+  background: rgba(121,200,154,.035);
+}
+
+html.dark-mode .btn-outline:hover {
+  background: rgba(121,200,154,.10);
+  border-color: rgba(121,200,154,.65);
+}
+
+html.dark-mode .wa-btn {
+  box-shadow: 0 10px 25px rgba(0,0,0,.18);
+}
+
+html.dark-mode .ai-fab {
+  box-shadow:
+    0 12px 32px rgba(0,0,0,.35),
+    0 0 0 5px rgba(121,200,154,.07);
+}
+
+html.dark-mode .ai-chat,
+html.dark-mode .ai-panel,
+html.dark-mode .ai-window {
+  background: #111a15;
+  border-color: rgba(255,255,255,.10);
+  box-shadow: 0 24px 65px rgba(0,0,0,.45);
+}
+
+html.dark-mode .ai-input,
+html.dark-mode .ai-input input,
+html.dark-mode .ai-input textarea {
+  background: #0b120f;
+  color: #edf5ef;
+  border-color: rgba(255,255,255,.10);
+}
+
+html.dark-mode .ai-bubble:not(.user) {
+  background: #1b2821;
+  color: #d8e7dd;
+  border-color: rgba(255,255,255,.07);
+}
+
+html.dark-mode .ai-suggestions button {
+  background: #17231d;
+  color: #9cddb5;
+  border-color: rgba(121,200,154,.18);
+}
+
+html.dark-mode .ai-suggestions button:hover {
+  background: #203128;
+  border-color: rgba(121,200,154,.38);
+}
+
+html.dark-mode .theme-toggle {
+  box-shadow: 0 6px 18px rgba(0,0,0,.18);
+}
+
+html.dark-mode .theme-toggle:hover {
+  background: #203128;
+  border-color: rgba(121,200,154,.35);
+}
+
+html.dark-mode ::selection {
+  background: rgba(121,200,154,.25);
+  color: #fff;
+}
+
+/* Avoid an abrupt flash when switching themes. */
+html.dark-mode *,
+html.dark-mode *::before,
+html.dark-mode *::after {
+  transition-property: background-color, color, border-color, box-shadow;
+  transition-duration: .18s;
+  transition-timing-function: ease;
+}

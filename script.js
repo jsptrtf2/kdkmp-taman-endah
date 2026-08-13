@@ -202,3 +202,32 @@
     });
   }
 })();
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+(function () {
+  const root = document.documentElement;
+  const toggle = document.getElementById('themeToggle');
+
+  if (localStorage.getItem('kdkmp-theme') === 'dark') {
+    root.classList.add('dark-mode');
+  }
+
+  if (!toggle) return;
+
+  function updateThemeButton() {
+    const isDark = root.classList.contains('dark-mode');
+    toggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+    toggle.setAttribute('aria-label', isDark ? 'Aktifkan mode terang' : 'Aktifkan mode gelap');
+    toggle.setAttribute('title', isDark ? 'Mode terang' : 'Mode gelap');
+  }
+
+  updateThemeButton();
+
+  toggle.addEventListener('click', function () {
+    const isDark = root.classList.toggle('dark-mode');
+    localStorage.setItem('kdkmp-theme', isDark ? 'dark' : 'light');
+    updateThemeButton();
+  });
+})();
