@@ -65,6 +65,8 @@
 
   if(!fab || !chat) return;
 
+  ensureAIFormattingStyles();
+
   /*
    * =======================================================
    * AI CONVERSATION MEMORY
@@ -85,6 +87,97 @@
 
   const MAX_LOCAL_HISTORY = 12;
   const MAX_LOCAL_TEXT = 1200;
+
+  /*
+   * Styling tambahan untuk formatting jawaban AI.
+   * Hanya ditambahkan sekali.
+   */
+  function ensureAIFormattingStyles(){
+
+    if(document.getElementById('aiFormattingStyles')){
+      return;
+    }
+
+    const style=document.createElement('style');
+
+    style.id='aiFormattingStyles';
+
+    style.textContent=`
+      .ai-bubble p{
+        margin:0 0 10px;
+      }
+
+      .ai-bubble p:last-child{
+        margin-bottom:0;
+      }
+
+      .ai-bubble strong{
+        font-weight:700;
+      }
+
+      .ai-bubble em{
+        font-style:italic;
+      }
+
+      .ai-bubble code{
+        padding:2px 5px;
+        border-radius:5px;
+        background:rgba(0,0,0,.06);
+        font-family:monospace;
+        font-size:.92em;
+      }
+
+      .ai-bubble .ai-heading{
+        margin:12px 0 7px;
+        line-height:1.3;
+      }
+
+      .ai-bubble .ai-heading-1{
+        font-size:1.25em;
+      }
+
+      .ai-bubble .ai-heading-2{
+        font-size:1.12em;
+      }
+
+      .ai-bubble .ai-heading-3{
+        font-size:1.03em;
+      }
+
+      .ai-bubble .ai-list{
+        margin:6px 0 10px;
+        padding-left:22px;
+      }
+
+      .ai-bubble .ai-list li{
+        margin:5px 0;
+      }
+
+      .ai-bubble .ai-divider{
+        border:0;
+        border-top:1px solid rgba(0,0,0,.12);
+        margin:12px 0;
+      }
+
+      .ai-bubble .ai-code{
+        margin:8px 0;
+        padding:10px 12px;
+        overflow-x:auto;
+        border-radius:8px;
+        background:rgba(0,0,0,.06);
+        white-space:pre;
+      }
+
+      .ai-bubble .ai-math{
+        overflow-x:auto;
+        padding:4px 0;
+        margin:8px 0;
+      }
+    `;
+
+    document.head.appendChild(style);
+  }
+
 
   function openChat(){
     chat.classList.add('open');
@@ -114,17 +207,53 @@
    * MathJax akan merendernya setelah bubble dibuat.
    */
   function formatAIInline(text){
+
+    /*
+     * Formatting Markdown ringan yang aman karena text
+     * sudah melalui escapeHTML().
+     *
+     * Didukung:
+     * **tebal**
+     * *miring*
+     * _miring_
+     * `kode`
+     */
     return text
-      .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
-      .replace(/`([^`]+)`/g,'<code>$1</code>');
+
+      .replace(
+        /`([^`]+)`/g,
+        '<code>$1</code>'
+      )
+
+      .replace(
+        /\*\*(.+?)\*\*/g,
+        '<strong>$1</strong>'
+      )
+
+      .replace(
+        /__(.+?)__/g,
+        '<strong>$1</strong>'
+      )
+
+      .replace(
+        /(?<!\*)\*([^*\n]+)\*(?!\*)/g,
+        '<em>$1</em>'
+      )
+
+      .replace(
+        /(?<!_)_([^_\n]+)_(?!_)/g,
+        '<em>$1</em>'
+      );
   }
 
+
   function renderAIText(text){
+
     const safe=escapeHTML(text);
 
     /*
-     * Lindungi blok matematika agar tidak rusak oleh
-     * parser baris sederhana.
+     * Lindungi blok matematika sebelum Markdown diproses.
+     * Dengan cara ini $$...$$ tidak rusak oleh formatter.
      */
     const mathBlocks=[];
     const mathPlaceholder='___KDKMP_MATH_BLOCK_';
@@ -138,68 +267,264 @@
       }
     );
 
-    const lines=protectedText.split(/\r?\n/);
+
+    const lines=
+      protectedText.split(/\r?\n/);
+
 
     let html='';
-    let inList=false;
 
-    lines.forEach(line=>{
-      const trimmed=line.trim();
+    let listType=null;
 
-      if(!trimmed){
-        if(inList){
-          html+='</ul>';
-          inList=false;
-        }
+    let inCodeBlock=false;
+    let codeBuffer=[];
+
+
+    function closeList(){
+
+      if(listType==='ul'){
+        html+='</ul>';
+      }
+
+      if(listType==='ol'){
+        html+='</ol>';
+      }
+
+      listType=null;
+    }
+
+
+    function closeCodeBlock(){
+
+      if(!inCodeBlock){
         return;
       }
 
-      const listMatch=trimmed.match(/^[-*•]\s+(.*)$/);
+      html+=
+        '<pre class="ai-code"><code>' +
+        codeBuffer.join('\n') +
+        '</code></pre>';
 
-      if(listMatch){
-        if(!inList){
-          html+='<ul>';
-          inList=true;
+      codeBuffer=[];
+      inCodeBlock=false;
+    }
+
+
+    lines.forEach(line=>{
+
+      const trimmed=line.trim();
+
+
+      /*
+       * Code block Markdown:
+       * ```
+       */
+      if(trimmed==='```'){
+
+        if(inCodeBlock){
+          closeCodeBlock();
+        }else{
+
+          closeList();
+
+          inCodeBlock=true;
+          codeBuffer=[];
+
         }
 
-        html+='<li>'+formatAIInline(listMatch[1])+'</li>';
+        return;
+      }
+
+
+      if(inCodeBlock){
+
+        codeBuffer.push(line);
+        return;
+
+      }
+
+
+      /*
+       * Baris kosong.
+       */
+      if(!trimmed){
+
+        closeList();
+        return;
+
+      }
+
+
+      /*
+       * Horizontal rule.
+       */
+      if(
+        /^(-{3,}|\*{3,}|_{3,})$/.test(trimmed)
+      ){
+
+        closeList();
+
+        html+='<hr class="ai-divider">';
+
+        return;
+
+      }
+
+
+      /*
+       * Heading Markdown:
+       *
+       * # Judul
+       * ## Judul
+       * ### Judul
+       */
+      const heading=
+        trimmed.match(/^(#{1,3})\s+(.+)$/);
+
+
+      if(heading){
+
+        closeList();
+
+        const level=
+          heading[1].length;
+
+        html+=
+          '<h' +
+          level +
+          ' class="ai-heading ai-heading-' +
+          level +
+          '">' +
+          formatAIInline(heading[2]) +
+          '</h' +
+          level +
+          '>';
+
+        return;
+
+      }
+
+
+      /*
+       * Ordered list:
+       *
+       * 1. Item
+       * 2. Item
+       */
+      const ordered=
+        trimmed.match(/^\d+[.)]\s+(.*)$/);
+
+
+      if(ordered){
+
+        if(listType!=='ol'){
+
+          closeList();
+
+          html+='<ol class="ai-list ai-list-ordered">';
+
+          listType='ol';
+
+        }
+
+        html+=
+          '<li>' +
+          formatAIInline(ordered[1]) +
+          '</li>';
+
+        return;
+
+      }
+
+
+      /*
+       * Unordered list:
+       *
+       * - Item
+       * * Item
+       * • Item
+       */
+      const unordered=
+        trimmed.match(/^[-*•]\s+(.*)$/);
+
+
+      if(unordered){
+
+        if(listType!=='ul'){
+
+          closeList();
+
+          html+='<ul class="ai-list ai-list-unordered">';
+
+          listType='ul';
+
+        }
+
+        html+=
+          '<li>' +
+          formatAIInline(unordered[1]) +
+          '</li>';
+
+        return;
+
+      }
+
+
+      /*
+       * Baris biasa.
+       */
+      closeList();
+
+
+      /*
+       * Blok matematika.
+       */
+      if(
+        trimmed.startsWith(mathPlaceholder) &&
+        trimmed.endsWith('___')
+      ){
+
+        html+=
+          '<div class="ai-math">' +
+          trimmed +
+          '</div>';
 
       }else{
 
-        if(inList){
-          html+='</ul>';
-          inList=false;
-        }
+        html+=
+          '<p>' +
+          formatAIInline(trimmed) +
+          '</p>';
 
-        /*
-         * Jika satu baris berisi blok matematika,
-         * bungkus dengan div agar MathJax dapat merendernya.
-         */
-        if(
-          trimmed.startsWith(mathPlaceholder) &&
-          trimmed.endsWith('___')
-        ){
-          html+='<div class="ai-math">'+formatAIInline(trimmed)+'</div>';
-        }else{
-          html+='<p>'+formatAIInline(trimmed)+'</p>';
-        }
       }
+
     });
 
-    if(inList) html+='</ul>';
+
+    closeList();
+    closeCodeBlock();
+
 
     /*
-     * Kembalikan LaTeX yang sudah dilindungi.
+     * Kembalikan LaTeX yang dilindungi.
      */
     mathBlocks.forEach((block,index)=>{
-      html=html.replace(
-        mathPlaceholder+index+'___',
-        block
-      );
+
+      html=
+        html.replace(
+          mathPlaceholder+index+'___',
+          block
+        );
+
     });
 
-    return html || '<p>Maaf, saya belum mendapatkan jawaban.</p>';
+
+    return html ||
+      '<p>Maaf, saya belum mendapatkan jawaban.</p>';
+
   }
+
+
 
   /*
    * Render ulang MathJax setelah bubble ditambahkan.
