@@ -2677,7 +2677,7 @@ html.dark-mode .manager-highlight span {
 /* Desktop/tablet / Chrome HP dengan "Situs Desktop" */
 @media (max-width:1100px) {
   .hero {
-    padding-top: 150px !important;
+    padding-top: 120px !important;
   }
 
   .hero .container {
