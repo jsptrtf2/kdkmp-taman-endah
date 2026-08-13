@@ -2653,7 +2653,7 @@ html.dark-mode .manager-highlight span {
    ========================================================= */
 @media (max-width:1100px) {
   .hero {
-    padding-top: 78px !important;
+    padding-top: 110px !important;
   }
 
   .hero .container {
