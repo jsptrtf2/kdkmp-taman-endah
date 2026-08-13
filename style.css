@@ -2695,3 +2695,9 @@ html.dark-mode .manager-highlight span {
     padding-top: 0 !important;
   }
 }
+
+
+/* DARK MODE FIX — teks fitur Tentang Kami */
+html.dark-mode .about-feature span {
+  color: #d7eee0 !important;
+}
