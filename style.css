@@ -608,7 +608,7 @@
     .nav-cta{margin-left:0;}
     .navbar.scrolled .nav-toggle span{background:var(--ink);}
     body.menu-open .nav-toggle span{background:#fff !important;}
-    .hero{padding-top:140px;}
+    .hero{padding-top:130px;}
     .hero .container{padding-bottom:110px;}
     .about-features{grid-template-columns:1fr;}
     .unit-grid{grid-template-columns:1fr;}
@@ -2613,27 +2613,6 @@ html.dark-mode .manager-highlight span {
 }
 
 
-/* =========================================================
-   V1.6.2 — HERO TOP SPACING
-   Badge "Portal Resmi KDKMP" dibuat lebih dekat ke navbar.
-   ========================================================= */
-
-.hero .container {
-  padding-top: clamp(10px, 2.5vw, 28px) !important;
-}
-
-@media (max-width: 1100px) {
-  .hero .container {
-    padding-top: 10px !important;
-  }
-}
-
-@media (max-width: 600px) {
-  .hero .container {
-    padding-top: 8px !important;
-  }
-}
-
 
 /* =========================================================
    V1.6.3 — HERO TOP GAP FINAL ADJUSTMENT
@@ -2660,6 +2639,31 @@ html.dark-mode .manager-highlight span {
 @media (max-width: 600px) {
   .hero {
     padding-top: 58px !important;
+  }
+
+  .hero .container {
+    padding-top: 0 !important;
+  }
+}
+
+
+/* =========================================================
+   V1.6.5 — FINAL HERO SPACING
+   Satu aturan utama untuk jarak navbar → Portal Resmi KDKMP.
+   ========================================================= */
+@media (max-width:1100px) {
+  .hero {
+    padding-top: 78px !important;
+  }
+
+  .hero .container {
+    padding-top: 0 !important;
+  }
+}
+
+@media (max-width:600px) {
+  .hero {
+    padding-top: 72px !important;
   }
 
   .hero .container {
