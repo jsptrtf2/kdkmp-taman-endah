@@ -1942,3 +1942,76 @@ html.dark-mode .potential-card span { color:#9aaca0; }
 html.dark-mode .nav-links{
   background:rgba(11,18,15,.99) !important;
 }
+
+
+/* =========================================================
+   V1.3.2 — PREMIUM MOBILE MENU
+   ========================================================= */
+@media (max-width:1100px) {
+  .menu-overlay {
+    position:fixed;
+    inset:0;
+    background:rgba(3,12,8,.62);
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:opacity .28s ease, visibility .28s ease;
+    z-index:1090;
+    backdrop-filter:blur(2px);
+    -webkit-backdrop-filter:blur(2px);
+  }
+
+  body.menu-open {
+    overflow:hidden;
+  }
+
+  body.menu-open .menu-overlay {
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+  }
+
+  body.menu-open .nav-toggle span:nth-child(1) {
+    transform:translateY(7px) rotate(45deg);
+  }
+
+  body.menu-open .nav-toggle span:nth-child(2) {
+    opacity:0;
+    transform:scaleX(0);
+  }
+
+  body.menu-open .nav-toggle span:nth-child(3) {
+    transform:translateY(-7px) rotate(-45deg);
+  }
+
+  .nav-toggle span {
+    transition:transform .25s ease, opacity .2s ease, background-color .2s ease;
+    transform-origin:center;
+  }
+
+  .nav-links {
+    background:#0b4b31 !important;
+    opacity:1 !important;
+  }
+
+  .nav-links a {
+    position:relative;
+  }
+
+  .nav-links a.active {
+    background:rgba(255,255,255,.12) !important;
+  }
+
+  .nav-links .nav-cta {
+    box-shadow:0 10px 25px rgba(0,0,0,.18);
+  }
+}
+
+html.dark-mode .menu-overlay {
+  background:rgba(0,0,0,.72);
+}
+
+html.dark-mode .nav-links {
+  background:#0c1812 !important;
+  box-shadow:-18px 0 50px rgba(0,0,0,.42) !important;
+}

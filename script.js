@@ -7,14 +7,29 @@
     if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 20);
   }, {passive:true});
 
+  const menuOverlay = document.getElementById('menuOverlay');
+
+  const setMenu = (open) => {
+    navLinks?.classList.toggle('open', open);
+    document.body.classList.toggle('menu-open', open);
+    navToggle?.setAttribute('aria-expanded', open ? 'true' : 'false');
+    navToggle?.setAttribute('aria-label', open ? 'Tutup menu' : 'Buka menu');
+    menuOverlay?.setAttribute('aria-hidden', open ? 'false' : 'true');
+  };
+
   navToggle?.addEventListener('click', () => {
-    navLinks?.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', navLinks?.classList.contains('open') ? 'true' : 'false');
+    setMenu(!navLinks?.classList.contains('open'));
   });
 
+  menuOverlay?.addEventListener('click', () => setMenu(false));
+
   navLinks?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    navLinks.classList.remove('open');
+    setMenu(false);
   }));
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1100) setMenu(false);
+  });
 
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
