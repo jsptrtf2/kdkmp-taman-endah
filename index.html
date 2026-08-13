@@ -2,6 +2,14 @@
 <html lang="id">
 <head>
 <meta charset="utf-8">
+
+<meta name="theme-color" content="#0F3A25">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="KDKMP Desa Taman Endah">
+<meta property="og:description" content="Website Koperasi Desa Merah Putih Taman Endah — informasi KDKMP, potensi desa, unit usaha, struktur organisasi, dan Asisten AI.">
+<meta property="og:locale" content="id_ID">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0F3A25">
 <title>KDKMP Desa Taman Endah — Portal Digital Koperasi</title>
@@ -336,6 +344,546 @@ footer{background:#0b2c1d;color:#fff;padding:45px 0 25px}
   .ai-fab{right:14px;bottom:14px}
   .ai-chat{right:10px;bottom:72px;width:calc(100vw - 20px);height:min(570px,calc(100vh - 92px))}
 }
+
+/* DARK MODE */
+body.dark-mode{
+  --white:#111816;
+  --ink:#E8F1EC;
+  --ink-soft:#B7C8BF;
+  --border:#294238;
+  --green-50:#14231C;
+  --green-100:#1B3327;
+  background:#0C1411;
+  color:var(--ink);
+}
+body.dark-mode .navbar.scrolled{
+  background:rgba(12,20,17,.94);
+}
+body.dark-mode .navbar.scrolled .brand,
+body.dark-mode .navbar.scrolled .nav-links a{
+  color:#E8F1EC;
+}
+body.dark-mode .nav-links{
+  background:#101B16;
+}
+body.dark-mode .nav-links a,
+body.dark-mode .navbar.scrolled .nav-links a{
+  color:#E8F1EC!important;
+}
+body.dark-mode .about-copy,
+body.dark-mode .official-card,
+body.dark-mode .people-card,
+body.dark-mode .person,
+body.dark-mode .unit-card,
+body.dark-mode .faq-item,
+body.dark-mode .contact-card,
+body.dark-mode .stat{
+  background:#111C17;
+  border-color:#294238;
+}
+body.dark-mode .about-copy p,
+body.dark-mode .section-desc,
+body.dark-mode .unit-card p,
+body.dark-mode .faq-a,
+body.dark-mode .contact-row span,
+body.dark-mode .official-list span,
+body.dark-mode .manager span,
+body.dark-mode .person span{
+  color:#B7C8BF;
+}
+body.dark-mode .faq-q{
+  background:#111C17;
+  color:#E8F1EC;
+}
+body.dark-mode .contact-row,
+body.dark-mode .manager,
+body.dark-mode .note{
+  background:#14231C;
+}
+body.dark-mode .v3-official{
+  background:#0F1914;
+}
+body.dark-mode .ai-chat,
+body.dark-mode .ai-bubble{
+  background:#111C17;
+  border-color:#294238;
+}
+body.dark-mode .ai-body{
+  background:#0E1713;
+}
+body.dark-mode .ai-foot{
+  background:#111C17;
+  border-color:#294238;
+}
+body.dark-mode .ai-foot input{
+  background:#0E1713;
+  color:#E8F1EC;
+  border-color:#294238;
+}
+body.dark-mode .ai-suggestions button{
+  background:#14231C;
+  color:#BFE5CF;
+  border-color:#315243;
+}
+body.dark-mode .about-feature{
+  background:#1B3327;
+  color:#BFE5CF;
+}
+body.dark-mode footer{
+  background:#070E0B;
+}
+
+
+.theme-toggle{
+  display:flex;align-items:center;justify-content:center;gap:7px;
+  border:1px solid rgba(255,255,255,.28);
+  background:rgba(255,255,255,.08);
+  color:#fff;border-radius:999px;padding:9px 12px;
+  cursor:pointer;font-size:12px;font-weight:800;
+  transition:.25s var(--ease);
+}
+.navbar.scrolled .theme-toggle{
+  color:var(--green-900);
+  background:rgba(15,58,37,.05);
+  border-color:var(--border);
+}
+.theme-toggle:hover{transform:translateY(-1px)}
+.theme-icon{font-size:16px;line-height:1}
+body.dark-mode .theme-toggle{
+  color:#FFE9A8;
+  background:#1B3327;
+  border-color:#315243;
+}
+@media(max-width:900px){
+  .theme-toggle{
+    margin-left:auto;
+    margin-right:4px;
+    width:44px;height:44px;padding:0;
+    border-radius:50%;
+  }
+  .theme-text{display:none}
+}
+
+
+/* =========================================================
+   MOBILE + AI UX UPGRADE
+   ========================================================= */
+
+body.menu-open{overflow:hidden}
+
+.mobile-menu-head{display:none}
+
+@media(max-width:900px){
+  .navbar .container{gap:8px}
+  .nav-links{
+    width:min(360px,88vw);
+    padding:24px 18px 30px;
+    background:rgba(255,255,255,.98);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    box-shadow:-20px 0 60px rgba(0,0,0,.22);
+  }
+
+  .mobile-menu-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    padding:4px 2px 20px;
+    margin-bottom:4px;
+    border-bottom:1px solid var(--border);
+  }
+  .mobile-menu-head strong{
+    display:block;
+    color:var(--green-900);
+    font:800 18px "Plus Jakarta Sans",sans-serif;
+  }
+  .mobile-menu-head span{
+    display:block;
+    margin-top:3px;
+    color:var(--ink-soft);
+    font-size:11px;
+  }
+  .mobile-menu-close{
+    width:40px;height:40px;border:1px solid var(--border);
+    border-radius:50%;background:var(--green-50);
+    color:var(--green-900);font-size:25px;line-height:1;
+    cursor:pointer;
+  }
+
+  .nav-links a{
+    position:relative;
+    display:flex!important;
+    align-items:center;
+    min-height:50px;
+    padding:13px 14px!important;
+    margin:1px 0;
+    font-size:14px!important;
+    font-weight:800!important;
+    transition:.2s ease;
+  }
+  .nav-links a::before{
+    content:"";
+    width:7px;height:7px;border-radius:50%;
+    background:#c9dcd1;
+    margin-right:12px;
+    flex:0 0 7px;
+    transition:.2s ease;
+  }
+  .nav-links a:hover,
+  .nav-links a:focus-visible{
+    background:var(--green-50);
+    transform:translateX(2px);
+  }
+  .nav-links a:hover::before,
+  .nav-links a:focus-visible::before{
+    background:var(--red-600);
+  }
+  .nav-links .nav-cta{
+    justify-content:center;
+    margin-top:12px;
+  }
+  .nav-links .nav-cta::before{display:none}
+
+  .theme-toggle{
+    flex:0 0 42px;
+    width:42px;height:42px;
+    box-shadow:none;
+  }
+
+  /* AI FAB */
+  .ai-fab{
+    right:14px;
+    bottom:calc(14px + env(safe-area-inset-bottom));
+    padding:10px 14px 10px 10px;
+    min-height:52px;
+    font-size:12px;
+  }
+  .ai-fab-icon{width:31px;height:31px}
+
+  /* AI chat sebagai bottom sheet di HP */
+  .ai-chat{
+    right:8px;
+    left:8px;
+    bottom:8px;
+    width:auto;
+    height:min(78dvh,650px);
+    max-height:calc(100dvh - 16px);
+    border-radius:24px;
+    transform:translateY(24px) scale(.985);
+    box-shadow:0 20px 80px rgba(0,0,0,.28);
+  }
+  .ai-chat.open{transform:none}
+
+  .ai-chat-head{
+    padding:14px 15px;
+    min-height:64px;
+  }
+  .ai-avatar{width:40px;height:40px}
+  .ai-title strong{font-size:14px}
+  .ai-title span{font-size:10px}
+
+  .ai-body{
+    padding:16px 12px;
+    -webkit-overflow-scrolling:touch;
+  }
+  .ai-bubble{
+    max-width:91%;
+    font-size:13px;
+    line-height:1.65;
+    padding:12px 13px;
+    border-radius:16px 16px 16px 5px;
+  }
+  .ai-message.user .ai-bubble{
+    border-radius:16px 16px 5px 16px;
+  }
+  .ai-suggestions{
+    gap:7px;
+  }
+  .ai-suggestions button{
+    font-size:11px;
+    padding:9px 11px;
+  }
+  .ai-foot{
+    padding:10px 10px 8px;
+    padding-bottom:calc(8px + env(safe-area-inset-bottom));
+  }
+  .ai-foot input{
+    font-size:13px;
+    min-height:44px;
+  }
+  .ai-foot button{
+    width:46px;
+    min-width:46px;
+    height:44px;
+  }
+  .ai-disclaimer{font-size:9px;padding:7px}
+
+  /* Hindari elemen halaman bergeser horizontal */
+  html,body{overflow-x:hidden}
+}
+
+body.dark-mode .mobile-menu-head{
+  border-color:#294238;
+}
+body.dark-mode .mobile-menu-head strong,
+body.dark-mode .mobile-menu-close{
+  color:#E8F1EC;
+}
+body.dark-mode .mobile-menu-close{
+  background:#14231C;
+  border-color:#315243;
+}
+body.dark-mode .nav-links{
+  background:rgba(16,27,22,.98);
+}
+body.dark-mode .nav-links a,
+body.dark-mode .navbar.scrolled .nav-links a{
+  color:#E8F1EC!important;
+}
+body.dark-mode .nav-links a:hover,
+body.dark-mode .nav-links a:focus-visible{
+  background:#1B3327;
+}
+body.dark-mode .nav-links a::before{background:#365547}
+body.dark-mode .nav-links a:hover::before,
+body.dark-mode .nav-links a:focus-visible::before{background:#ff7d80}
+
+
+/* AI ASSISTANT V3 */
+.ai-chat{border-radius:24px;background:#fff}
+.ai-chat-head{min-height:72px;padding:14px 16px;background:linear-gradient(135deg,#0F3A25,#17643B)}
+.ai-avatar{width:42px;height:42px;box-shadow:0 0 0 3px rgba(255,255,255,.12)}
+.ai-online-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#66e39b;margin-right:4px;vertical-align:middle}
+.ai-body{scroll-behavior:smooth}
+.ai-welcome{text-align:center;padding:18px 8px 13px}
+.ai-welcome-icon{width:54px;height:54px;margin:0 auto 10px;display:grid;place-items:center;border-radius:17px;background:linear-gradient(145deg,#E7F5EC,#D5EDE0);color:#0F3A25;font-size:26px;box-shadow:0 8px 22px rgba(15,58,37,.10)}
+.ai-welcome h3{margin:0 0 7px;color:#0F3A25;font:800 18px "Plus Jakarta Sans",sans-serif}
+.ai-welcome p{max-width:310px;margin:0 auto;color:#607168;font-size:11px;line-height:1.7}
+.ai-suggestion-title{margin:7px 3px 8px;color:#809088;font-size:9px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
+.ai-suggestions button{transition:.2s ease}
+.ai-suggestions button:hover{transform:translateY(-1px);border-color:#8fbaa3;background:#F1F8F3}
+.ai-typing{display:flex;align-items:center;gap:4px;padding:6px 14px 9px;background:#f7faf8;color:#91a29a;font-size:9px}
+.ai-typing span{width:5px;height:5px;border-radius:50%;background:#5c8b72;animation:aiDot 1.1s infinite ease-in-out}
+.ai-typing span:nth-child(2){animation-delay:.15s}.ai-typing span:nth-child(3){animation-delay:.3s}
+.ai-typing em{font-style:normal;margin-left:4px}
+@keyframes aiDot{0%,60%,100%{transform:translateY(0);opacity:.45}30%{transform:translateY(-3px);opacity:1}}
+.ai-input-wrap{position:relative;flex:1;min-width:0}
+.ai-input-wrap input{width:100%;padding-right:46px!important}
+.ai-input-wrap span{position:absolute;right:10px;bottom:6px;color:#9aa9a2;font-size:8px;pointer-events:none}
+.ai-foot button{transition:.2s ease}.ai-foot button:not(:disabled):hover{transform:translateY(-1px);background:#A5232A}.ai-foot button:disabled{opacity:.5;cursor:not-allowed}
+.ai-fab{transition:.25s ease}.ai-fab:hover{transform:translateY(-3px)}
+body.dark-mode .ai-welcome h3{color:#E8F1EC}
+body.dark-mode .ai-welcome p{color:#B7C8BF}
+body.dark-mode .ai-welcome-icon{background:#1B3327;color:#BFE5CF}
+body.dark-mode .ai-suggestion-title{color:#8fa49a}
+body.dark-mode .ai-suggestions button:hover{background:#1B3327;border-color:#426452}
+body.dark-mode .ai-typing{background:#0E1713;color:#8fa49a}
+body.dark-mode .ai-input-wrap span{color:#81938a}
+@media(max-width:900px){.ai-chat{height:min(82dvh,680px)}.ai-welcome{padding-top:16px}.ai-welcome p{font-size:12px}.ai-suggestion-title{font-size:10px}.ai-suggestions button{font-size:11px;padding:10px 12px}}
+
+
+/* V4 PROFILE POLISH */
+.org-v4{margin-top:24px;padding:30px;border:1px solid var(--border);border-radius:26px;background:linear-gradient(145deg,#fff,#F7FBF8);box-shadow:var(--shadow);position:relative;overflow:hidden}
+.org-v4:before{content:"";position:absolute;width:260px;height:260px;right:-120px;top:-130px;border:1px solid rgba(31,138,76,.10);border-radius:50%}
+.org-v4-head{display:flex;justify-content:space-between;gap:24px;align-items:flex-start}
+.org-v4-head h3{margin:8px 0 7px;color:var(--green-900);font-size:25px}
+.org-v4-head p{margin:0;max-width:620px;color:var(--ink-soft);font-size:13px;line-height:1.7}
+.org-badge{width:76px;height:76px;flex:none;border-radius:20px;display:grid;place-items:center;text-align:center;background:var(--green-900);color:#fff;font:800 14px/1.05 "Plus Jakarta Sans",sans-serif;box-shadow:0 12px 25px rgba(15,58,37,.18)}
+.org-badge small{font:600 8px Inter,sans-serif;opacity:.75}
+.org-manager-v4{margin:28px auto 0;max-width:590px;display:flex;align-items:center;gap:18px;padding:18px;border:1px solid #CFE1D6;border-radius:20px;background:#fff;box-shadow:0 10px 28px rgba(15,58,37,.07)}
+.org-avatar-v4{width:78px;height:78px;flex:none;border-radius:22px;overflow:hidden;background:linear-gradient(145deg,#DCEEE3,#BFDCCB);display:grid;place-items:center;color:var(--green-900);font:800 21px "Plus Jakarta Sans",sans-serif}
+.org-avatar-v4 img{width:100%;height:100%;object-fit:cover}
+.org-avatar-v4 .avatar-fallback{display:none}
+.role-pill{display:inline-flex;padding:5px 9px;border-radius:999px;background:var(--green-100);color:var(--green-800);font-size:9px;font-weight:900;letter-spacing:.08em}
+.org-manager-info h4{margin:8px 0 4px;color:var(--green-900);font:800 20px "Plus Jakarta Sans",sans-serif}
+.org-manager-info p{margin:0;color:var(--ink-soft);font-size:12px;line-height:1.6}
+.org-line{height:1px;background:var(--border);margin:30px 0}
+.org-columns-v4{display:grid;grid-template-columns:1.35fr .65fr;gap:24px}
+.org-group-v4{padding:22px;border:1px solid var(--border);border-radius:20px;background:rgba(245,250,246,.7)}
+.group-title{display:flex;align-items:center;gap:12px;padding-bottom:16px;border-bottom:1px solid var(--border);margin-bottom:10px}
+.group-title>span{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:var(--green-900);color:#fff;font:800 10px "Plus Jakarta Sans",sans-serif}
+.group-title strong{display:block;color:var(--green-900);font:800 16px "Plus Jakarta Sans",sans-serif}
+.group-title small{display:block;color:var(--ink-soft);font-size:10px;margin-top:2px}
+.org-list-v4{display:grid;gap:5px}
+.org-person-v4{display:flex;align-items:center;gap:11px;padding:10px 8px;border-radius:12px;transition:.2s ease}
+.org-person-v4:hover{background:#fff;transform:translateX(2px)}
+.mini-avatar{width:36px;height:36px;flex:none;border-radius:11px;display:grid;place-items:center;background:var(--green-100);color:var(--green-800);font:800 10px "Plus Jakarta Sans",sans-serif}
+.org-person-v4 strong{display:block;color:var(--green-900);font-size:12px}
+.org-person-v4 small{display:block;color:var(--ink-soft);font-size:9px;line-height:1.4;margin-top:2px}
+body.dark-mode .org-v4{background:linear-gradient(145deg,#111C17,#0F1914)}
+body.dark-mode .org-v4-head h3,body.dark-mode .org-manager-info h4,body.dark-mode .group-title strong,body.dark-mode .org-person-v4 strong{color:#E8F1EC}
+body.dark-mode .org-manager-v4{background:#111C17;border-color:#294238}
+body.dark-mode .org-group-v4{background:#14231C;border-color:#294238}
+body.dark-mode .group-title{border-color:#294238}
+body.dark-mode .org-person-v4:hover{background:#1B3327}
+@media(max-width:700px){.org-v4{padding:20px;border-radius:22px}.org-v4-head h3{font-size:20px}.org-badge{width:60px;height:60px;border-radius:16px;font-size:11px}.org-manager-v4{margin-top:20px;padding:14px}.org-avatar-v4{width:62px;height:62px;border-radius:17px}.org-manager-info h4{font-size:17px}.org-columns-v4{grid-template-columns:1fr;gap:14px}.org-group-v4{padding:17px}}
+@media(max-width:430px){.org-badge{display:none}.org-manager-v4{gap:12px}.org-avatar-v4{width:56px;height:56px}}
+
+
+/* =========================================================
+   V5 — HOMEPAGE / HERO & POTENSI DESA
+   ========================================================= */
+.hero-v5{
+  position:relative;
+  min-height:calc(100vh - 74px);
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 82% 20%,rgba(86,170,116,.20),transparent 30%),
+    radial-gradient(circle at 12% 85%,rgba(255,255,255,.08),transparent 25%),
+    linear-gradient(135deg,#0B2B1B 0%,#0F3A25 48%,#17643B 100%);
+  color:#fff;
+}
+.hero-v5:before,.hero-v5:after{
+  content:"";position:absolute;border:1px solid rgba(255,255,255,.10);border-radius:50%;pointer-events:none;
+}
+.hero-v5:before{width:520px;height:520px;right:-180px;top:-190px}
+.hero-v5:after{width:360px;height:360px;left:-210px;bottom:-190px}
+.hero-v5 .container{position:relative;z-index:2}
+.hero-v5-grid{
+  display:grid;grid-template-columns:1.12fr .88fr;gap:54px;align-items:center;
+  padding:78px 0 62px;
+}
+.hero-v5-copy{max-width:700px}
+.hero-v5-kicker{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:7px 11px;border:1px solid rgba(255,255,255,.20);
+  border-radius:999px;background:rgba(255,255,255,.07);
+  font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+}
+.hero-v5-kicker i{width:7px;height:7px;border-radius:50%;background:#73E09A;box-shadow:0 0 0 5px rgba(115,224,154,.12)}
+.hero-v5 h1{
+  margin:20px 0 16px;
+  font:800 clamp(40px,5.5vw,72px)/1.02 "Plus Jakarta Sans",sans-serif;
+  letter-spacing:-.045em;
+}
+.hero-v5 h1 span{color:#B7E7C9}
+.hero-v5-lead{max-width:620px;margin:0;color:rgba(255,255,255,.78);font-size:15px;line-height:1.8}
+.hero-v5-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.hero-v5-actions .btn-primary{background:#fff;color:#0F3A25}
+.hero-v5-actions .btn-primary:hover{background:#EAF7EF}
+.hero-v5-actions .btn-ghost{border-color:rgba(255,255,255,.25);color:#fff;background:rgba(255,255,255,.06)}
+.hero-v5-actions .btn-ghost:hover{background:rgba(255,255,255,.12)}
+.hero-v5-card{
+  padding:20px;border:1px solid rgba(255,255,255,.14);
+  border-radius:28px;background:rgba(255,255,255,.08);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  box-shadow:0 28px 70px rgba(0,0,0,.20);
+}
+.hero-v5-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.hero-v5-card-title strong{display:block;font:800 16px "Plus Jakarta Sans",sans-serif}
+.hero-v5-card-title small{display:block;color:rgba(255,255,255,.60);font-size:10px;margin-top:3px}
+.hero-v5-mark{
+  width:46px;height:46px;border-radius:15px;display:grid;place-items:center;
+  background:#fff;color:#0F3A25;font-weight:900;font-size:19px;
+}
+.hero-v5-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.hero-v5-stat{padding:16px;border-radius:18px;background:rgba(0,0,0,.13);border:1px solid rgba(255,255,255,.09)}
+.hero-v5-stat strong{display:block;font:800 26px "Plus Jakarta Sans",sans-serif}
+.hero-v5-stat span{display:block;margin-top:3px;color:rgba(255,255,255,.62);font-size:10px}
+.hero-v5-note{margin-top:10px;padding:13px 14px;border-radius:16px;background:rgba(255,255,255,.07);color:rgba(255,255,255,.72);font-size:10px;line-height:1.6}
+.v5-stats-strip{position:relative;margin-top:-30px;z-index:5}
+.v5-stats-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:10px;
+  padding:12px;border:1px solid var(--border);border-radius:22px;
+  background:var(--white);box-shadow:0 18px 45px rgba(15,58,37,.10);
+}
+.v5-stat-card{display:flex;align-items:center;gap:12px;padding:14px;border-radius:15px}
+.v5-stat-icon{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:var(--green-100);color:var(--green-800);font-weight:900}
+.v5-stat-card strong{display:block;color:var(--green-900);font:800 18px "Plus Jakarta Sans",sans-serif}
+.v5-stat-card span{display:block;color:var(--ink-soft);font-size:9px;margin-top:2px}
+.v5-potentials{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:25px}
+.v5-potential{
+  min-height:180px;padding:20px;border:1px solid var(--border);border-radius:20px;
+  background:var(--white);box-shadow:0 8px 25px rgba(15,58,37,.05);
+  transition:.25s ease;position:relative;overflow:hidden;
+}
+.v5-potential:after{content:"";position:absolute;width:100px;height:100px;right:-50px;bottom:-55px;border-radius:50%;background:var(--green-50)}
+.v5-potential:hover{transform:translateY(-4px);box-shadow:0 18px 35px rgba(15,58,37,.10)}
+.v5-potential-icon{font-size:28px;margin-bottom:22px}
+.v5-potential h4{margin:0 0 6px;color:var(--green-900);font:800 15px "Plus Jakarta Sans",sans-serif}
+.v5-potential p{margin:0;color:var(--ink-soft);font-size:10px;line-height:1.6}
+body.dark-mode .v5-stats-grid,body.dark-mode .v5-potential{background:#111C17;border-color:#294238}
+body.dark-mode .v5-stat-card strong,body.dark-mode .v5-potential h4{color:#E8F1EC}
+body.dark-mode .v5-stat-icon{background:#1B3327;color:#BFE5CF}
+@media(max-width:850px){
+  .hero-v5-grid{grid-template-columns:1fr;gap:28px;padding:58px 0 70px}
+  .hero-v5-card{max-width:560px}
+  .v5-stats-grid{grid-template-columns:1fr 1fr}
+  .v5-potentials{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){
+  .hero-v5{min-height:auto}
+  .hero-v5-grid{padding:45px 0 62px}
+  .hero-v5 h1{font-size:40px}
+  .hero-v5-lead{font-size:13px}
+  .v5-stats-strip{margin-top:-22px}
+  .v5-stat-card{padding:11px}
+  .v5-stat-card strong{font-size:16px}
+  .v5-potentials{gap:9px}
+  .v5-potential{min-height:155px;padding:15px}
+  .v5-potential-icon{font-size:24px;margin-bottom:16px}
+}
+
+
+/* =========================================================
+   V6–V10 FINAL POLISH
+   ========================================================= */
+.business-grid-v6{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px}
+.business-v6{padding:22px;border:1px solid var(--border);border-radius:20px;background:var(--white);box-shadow:0 8px 25px rgba(15,58,37,.05);transition:.25s ease}
+.business-v6:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(15,58,37,.09)}
+.business-icon{font-size:30px;margin-bottom:15px}
+.status-v6{display:inline-flex;padding:4px 8px;border-radius:999px;background:var(--green-100);color:var(--green-800);font-size:8px;font-weight:900;text-transform:uppercase;letter-spacing:.06em}
+.business-v6 h3{margin:11px 0 7px;color:var(--green-900);font:800 15px "Plus Jakarta Sans",sans-serif}
+.business-v6 p{margin:0;color:var(--ink-soft);font-size:10px;line-height:1.65}
+.notice-v6{margin-top:15px;padding:14px 16px;border-radius:15px;background:var(--green-50);border:1px solid var(--border);color:var(--ink-soft);font-size:10px;line-height:1.6}
+.trans-grid-v7{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}
+.trans-card-v7{padding:18px;border:1px solid var(--border);border-radius:18px;background:var(--white)}
+.trans-card-v7 span{display:block;color:var(--ink-soft);font-size:9px;text-transform:uppercase;letter-spacing:.05em;font-weight:800;margin-bottom:7px}
+.trans-card-v7 strong{display:block;color:var(--green-900);font-size:12px;line-height:1.55}
+.trans-note-v7{margin-top:13px;padding:14px;border-radius:15px;background:#FFF8E8;border:1px solid #EBD9A7;color:#79652B;font-size:10px;line-height:1.6}
+.ai-promo-v8{display:flex;align-items:center;justify-content:space-between;gap:30px;padding:32px;border-radius:26px;background:linear-gradient(135deg,#0F3A25,#17643B);color:#fff;overflow:hidden;position:relative}
+.ai-promo-v8 h2{margin:8px 0;color:#fff;font-size:27px}
+.ai-promo-v8 p{max-width:650px;margin:0;color:rgba(255,255,255,.72);font-size:12px;line-height:1.75}
+.ai-promo-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.ai-promo-actions .btn-primary{background:#fff;color:#0F3A25}
+.ai-promo-actions .btn-outline{border-color:rgba(255,255,255,.25);color:#fff}
+.ai-promo-orb{width:120px;height:120px;flex:none;border-radius:38px;display:grid;place-items:center;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.15);font-size:45px;transform:rotate(8deg)}
+.wa-float-v9{position:fixed;right:18px;bottom:18px;z-index:120;display:flex;align-items:center;gap:8px;text-decoration:none;padding:9px 10px 9px 13px;border-radius:999px;background:#1E8E4A;color:#fff;box-shadow:0 12px 30px rgba(0,0,0,.18);font-size:10px;font-weight:800}
+.wa-float-v9 b{width:31px;height:31px;display:grid;place-items:center;border-radius:50%;background:#fff;color:#1E8E4A;font-size:16px}
+.wa-float-v9:hover{transform:translateY(-2px)}
+body.dark-mode .business-v6,body.dark-mode .trans-card-v7{background:#111C17;border-color:#294238}
+body.dark-mode .business-v6 h3,body.dark-mode .trans-card-v7 strong{color:#E8F1EC}
+body.dark-mode .notice-v6{background:#14231C;border-color:#294238}
+body.dark-mode .trans-note-v7{background:#302A18;border-color:#5B4D26;color:#D8C889}
+@media(max-width:900px){
+  .business-grid-v6{grid-template-columns:1fr 1fr}
+  .trans-grid-v7{grid-template-columns:1fr 1fr}
+  .ai-promo-v8{padding:25px}
+  .ai-promo-orb{width:90px;height:90px}
+}
+@media(max-width:560px){
+  .business-grid-v6,.trans-grid-v7{grid-template-columns:1fr}
+  .business-v6{padding:18px}
+  .ai-promo-v8{padding:22px;display:block}
+  .ai-promo-v8 h2{font-size:22px}
+  .ai-promo-orb{display:none}
+  .wa-float-v9{right:12px;bottom:12px}
+  .wa-float-v9 span{display:none}
+}
+@media print{
+  .navbar,.ai-fab,.ai-chat,.wa-float-v9,.nav-toggle{display:none!important}
+  .hero-v5{min-height:auto;color:#000;background:#fff!important}
+  .section{break-inside:avoid}
+}
+
+
+@media(max-width:560px){
+  .wa-float-v9{bottom:76px}
+}
+
 </style>
 </head>
 
@@ -356,6 +904,14 @@ footer{background:#0b2c1d;color:#fff;padding:45px 0 25px}
     </a>
 
     <nav class="nav-links" id="navLinks" aria-label="Navigasi utama">
+
+      <div class="mobile-menu-head">
+        <div>
+          <strong>Menu KDKMP</strong>
+          <span>Desa Taman Endah</span>
+        </div>
+        <button class="mobile-menu-close" id="mobileMenuClose" type="button" aria-label="Tutup menu">×</button>
+      </div>
       <a href="#beranda">Beranda</a>
       <a href="#tentang">Tentang</a>
       <a href="#profil-resmi">Profil Resmi</a>
@@ -366,6 +922,12 @@ footer{background:#0b2c1d;color:#fff;padding:45px 0 25px}
       <a class="nav-cta" href="#kontak">Hubungi Kami</a>
     </nav>
 
+
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Aktifkan mode gelap" aria-pressed="false">
+      <span class="theme-icon" id="themeIcon">☾</span>
+      <span class="theme-text" id="themeText">Mode Gelap</span>
+    </button>
+
     <button class="nav-toggle" id="navToggle" aria-label="Buka menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -374,22 +936,93 @@ footer{background:#0b2c1d;color:#fff;padding:45px 0 25px}
 
 <main>
 
-<section class="hero" id="beranda">
+<section class="hero-v5" id="beranda">
   <div class="container">
-    <span class="hero-eyebrow"><span class="dot"></span>Koperasi Desa/Kelurahan Merah Putih</span>
-    <h1>Koperasi Desa/Kelurahan Merah Putih<br><span class="accent">Desa Taman Endah</span></h1>
-    <p class="hero-tagline">"Bersama Membangun Ekonomi Desa"</p>
-    <div class="hero-actions">
-      <a class="btn btn-solid" href="#tentang">Tentang KDKMP</a>
-      <a class="btn btn-outline" href="#kontak">Hubungi Kami</a>
+    <div class="hero-v5-grid">
+      <div class="hero-v5-copy">
+        <div class="hero-v5-kicker"><i></i> Koperasi Desa Merah Putih</div>
+        <h1>Bersama Membangun <span>Ekonomi Desa.</span></h1>
+        <p class="hero-v5-lead">KDKMP Desa Taman Endah hadir sebagai wadah usaha bersama untuk mendukung kesejahteraan anggota, mengembangkan usaha koperasi, dan mendorong potensi ekonomi masyarakat desa.</p>
+        <div class="hero-v5-actions">
+          <a class="btn btn-primary" href="#tentang">Kenali KDKMP →</a>
+          <a class="btn btn-ghost" href="#potensi">Lihat Potensi Desa</a>
+        </div>
+      </div>
+
+      <div class="hero-v5-card">
+        <div class="hero-v5-card-top">
+          <div class="hero-v5-card-title">
+            <strong>KDKMP Desa Taman Endah</strong>
+            <small>Profil singkat koperasi</small>
+          </div>
+          <div class="hero-v5-mark">✦</div>
+        </div>
+        <div class="hero-v5-stats">
+          <div class="hero-v5-stat"><strong>183</strong><span>Anggota</span></div>
+          <div class="hero-v5-stat"><strong>3.372</strong><span>Penduduk desa</span></div>
+          <div class="hero-v5-stat"><strong>4</strong><span>Potensi desa tercatat</span></div>
+          <div class="hero-v5-stat"><strong>2025</strong><span>Tahun AHU</span></div>
+        </div>
+        <div class="hero-v5-note">Informasi pada website dibedakan antara data resmi KDKMP dan pengetahuan umum koperasi.</div>
+      </div>
     </div>
   </div>
-  <div class="hero-wave">
-    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-      <path d="M0 70 C250 110 450 20 720 55 C970 88 1190 35 1440 70 L1440 120 L0 120Z" fill="#DCEAE1" opacity=".45"/>
-      <path d="M0 88 C250 55 480 105 720 78 C980 50 1200 105 1440 75 L1440 120 L0 120Z" fill="#F5FAF6"/>
-      <path d="M0 105 C280 82 500 115 760 96 C1030 75 1220 112 1440 94 L1440 120 L0 120Z" fill="#fff"/>
-    </svg>
+</section>
+
+<div class="v5-stats-strip">
+  <div class="container">
+    <div class="v5-stats-grid">
+      <div class="v5-stat-card"><div class="v5-stat-icon">👥</div><div><strong>183</strong><span>Anggota KDKMP</span></div></div>
+      <div class="v5-stat-card"><div class="v5-stat-icon">🏡</div><div><strong>3.372</strong><span>Penduduk</span></div></div>
+      <div class="v5-stat-card"><div class="v5-stat-icon">🌾</div><div><strong>215 ha</strong><span>Potensi padi</span></div></div>
+      <div class="v5-stat-card"><div class="v5-stat-icon">📄</div><div><strong>AHU</strong><span>Terdaftar 2025</span></div></div>
+    </div>
+  </div>
+</div>
+
+<section class="section" id="potensi">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Potensi Desa</span>
+      <h2>Potensi yang Bisa Dikembangkan Bersama</h2>
+      <p>Data potensi yang tercatat pada informasi KDKMP Desa Taman Endah.</p>
+    </div>
+    <div class="v5-potentials">
+      <div class="v5-potential"><div class="v5-potential-icon">🌾</div><h4>Padi</h4><p>Potensi lahan tercatat sekitar <strong>215 ha</strong>.</p></div>
+      <div class="v5-potential"><div class="v5-potential-icon">🌽</div><h4>Jagung</h4><p>Potensi lahan tercatat sekitar <strong>2,5 ha</strong>.</p></div>
+      <div class="v5-potential"><div class="v5-potential-icon">🍠</div><h4>Ubi Kayu</h4><p>Potensi lahan tercatat sekitar <strong>5,5 ha</strong>.</p></div>
+      <div class="v5-potential"><div class="v5-potential-icon">🐟</div><h4>Perikanan</h4><p>Sektor perikanan tercatat sebagai salah satu potensi desa.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section v6-business" id="usaha">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Unit Usaha</span>
+      <h2>Fokus Usaha KDKMP</h2>
+      <p>Website KDKMP mencatat beberapa bidang usaha sebagai fokus awal. Status operasional dapat berubah sesuai perkembangan koperasi.</p>
+    </div>
+    <div class="business-grid-v6">
+      <article class="business-v6">
+        <div class="business-icon">🛒</div><span class="status-v6">Fokus Awal</span>
+        <h3>Gerai Ritel</h3><p>Penyediaan kebutuhan harian masyarakat melalui usaha ritel koperasi.</p>
+      </article>
+      <article class="business-v6">
+        <div class="business-icon">🌾</div><span class="status-v6">Fokus Awal</span>
+        <h3>Produk Pertanian</h3><p>Mendukung pengembangan dan pemanfaatan potensi produk pertanian desa.</p>
+      </article>
+      <article class="business-v6">
+        <div class="business-icon">💰</div><span class="status-v6">Fokus Awal</span>
+        <h3>Simpan Pinjam</h3><p>Bidang usaha yang tercatat sebagai fokus awal website KDKMP.</p>
+      </article>
+      <article class="business-v6">
+        <div class="business-icon">📦</div><span class="status-v6">Fokus Awal</span>
+        <h3>Distribusi Produk Anggota</h3><p>Mendorong penyaluran produk anggota dan potensi ekonomi masyarakat desa.</p>
+      </article>
+    </div>
+    <div class="notice-v6"><strong>Catatan:</strong> Keempat bidang di atas merupakan fokus awal yang ditampilkan website dan <strong>bukan pernyataan bahwa semuanya sudah beroperasi penuh</strong>.</div>
   </div>
 </section>
 
@@ -475,6 +1108,54 @@ footer{background:#0b2c1d;color:#fff;padding:45px 0 25px}
         <div class="person"><img src="foto/pengawas-suyitno.jpg" alt="Suyitno"><strong>Suyitno</strong><span>Anggota</span></div>
         <div class="person"><img src="foto/pengawas-paijo.jpg" alt="Paijo"><strong>Paijo</strong><span>Anggota</span></div>
         <div class="person"><img src="foto/pengawas-eni-purwani.jpg" alt="Eni Purwani"><strong>Eni Purwani</strong><span>Anggota</span></div>
+      </div>
+    </div>
+
+    <div class="org-v4">
+      <div class="org-v4-head">
+        <div>
+          <span class="eyebrow">Struktur Organisasi</span>
+          <h3>Pengelola KDKMP Desa Taman Endah</h3>
+          <p>Ringkasan struktur pengelola agar warga lebih mudah mengenali peran masing-masing.</p>
+        </div>
+        <div class="org-badge">KDKMP<br><small>Taman Endah</small></div>
+      </div>
+
+      <div class="org-manager-v4">
+        <div class="org-avatar-v4">
+          <img src="foto/manager-jaya-saputra.jpg" alt="Jaya Saputra, S.T." onerror="this.remove();">
+        </div>
+        <div class="org-manager-info">
+          <span class="role-pill">MANAGER</span>
+          <h4>Jaya Saputra, S.T.</h4>
+          <p>Manager KDKMP Desa Taman Endah.</p>
+        </div>
+      </div>
+
+      <div class="org-line"></div>
+
+      <div class="org-columns-v4">
+        <div class="org-group-v4">
+          <div class="group-title"><span>01</span><div><strong>Pengurus</strong><small>Struktur pengurus KDKMP</small></div></div>
+          <div class="org-list-v4">
+            <div class="org-person-v4"><div class="mini-avatar">HP</div><div><strong>Heri Purwanto</strong><small>Ketua</small></div></div>
+            <div class="org-person-v4"><div class="mini-avatar">B</div><div><strong>Basir</strong><small>Ketua</small></div></div>
+            <div class="org-person-v4"><div class="mini-avatar">MS</div><div><strong>Muhammad Saroji</strong><small>Wakil Ketua Bidang Usaha</small></div></div>
+            <div class="org-person-v4"><div class="mini-avatar">EA</div><div><strong>Ellya Apria Ningsih</strong><small>Wakil Ketua Bidang Anggota</small></div></div>
+            <div class="org-person-v4"><div class="mini-avatar">PM</div><div><strong>Puji Muhaimin</strong><small>Sekretaris</small></div></div>
+            <div class="org-person-v4"><div class="mini-avatar">RH</div><div><strong>Rudi Hermanto</strong><small>Bendahara</small></div></div>
+            <div class="org-person-v4"><div class="mini-avatar">M</div><div><strong>Masidah</strong><small>Anggota</small></div></div>
+          </div>
+        </div>
+
+        <div class="org-group-v4">
+          <div class="group-title"><span>02</span><div><strong>Pengawas</strong><small>Pengawasan koperasi</small></div></div>
+          <div class="org-list-v4">
+            <div class="org-person-v4"><div class="mini-avatar">S</div><div><strong>Suyitno</strong><small>Anggota</small></div></div>
+            <div class="org-person-v4"><div class="mini-avatar">P</div><div><strong>Paijo</strong><small>Anggota</small></div></div>
+            <div class="org-person-v4"><div class="mini-avatar">EP</div><div><strong>Eni Purwani</strong><small>Anggota</small></div></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -575,6 +1256,26 @@ footer{background:#0b2c1d;color:#fff;padding:45px 0 25px}
   </div>
 </section>
 
+
+<section class="section v7-transparency" id="transparansi">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Transparansi</span>
+      <h2>Informasi Resmi KDKMP</h2>
+      <p>Ringkasan data yang tersedia di database Asisten KDKMP Desa Taman Endah.</p>
+    </div>
+    <div class="trans-grid-v7">
+      <div class="trans-card-v7"><span>Nama</span><strong>Koperasi Desa Merah Putih Taman Endah</strong></div>
+      <div class="trans-card-v7"><span>Nomor AHU</span><strong>AHU-0061834.AH.01.29.TAHUN 2025</strong></div>
+      <div class="trans-card-v7"><span>Tanggal</span><strong>21 Juni 2025</strong></div>
+      <div class="trans-card-v7"><span>Anggota</span><strong>183 anggota</strong></div>
+      <div class="trans-card-v7"><span>Manager</span><strong>Jaya Saputra, S.T.</strong></div>
+      <div class="trans-card-v7"><span>Alamat</span><strong>Jl. Pardi Sumarto, Taman Endah, Purbalinggo, Kabupaten Lampung Timur, Lampung, 34192.</strong></div>
+    </div>
+    <div class="trans-note-v7">Informasi seperti modal, harga produk, nominal simpanan wajib, perhitungan SHU anggota, jadwal, dan kebijakan resmi tidak ditampilkan jika belum tersedia dalam database.</div>
+  </div>
+</section>
+
 <section class="section" id="kontak">
   <div class="container">
     <div class="section-head">
@@ -600,6 +1301,24 @@ footer{background:#0b2c1d;color:#fff;padding:45px 0 25px}
 
 </main>
 
+
+<section class="section v8-ai" id="bantuan">
+  <div class="container">
+    <div class="ai-promo-v8">
+      <div>
+        <span class="eyebrow">Asisten Digital</span>
+        <h2>Butuh informasi tentang KDKMP?</h2>
+        <p>Gunakan Asisten AI KDKMP untuk pertanyaan tentang profil koperasi, struktur organisasi, potensi desa, istilah koperasi, SHU, RAT, dan informasi umum lainnya.</p>
+        <div class="ai-promo-actions">
+          <button class="btn btn-primary" id="openAiFromSection" type="button">Tanya AI KDKMP ✦</button>
+          <a class="btn btn-outline" href="https://wa.me/62895704144149?text=Halo%20Pengurus%20KDKMP%20Desa%20Taman%20Endah%2C%20saya%20ingin%20bertanya." target="_blank" rel="noopener">Hubungi Pengurus</a>
+        </div>
+      </div>
+      <div class="ai-promo-orb">✦</div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="container">
     <div class="footer-top">
@@ -615,27 +1334,39 @@ footer{background:#0b2c1d;color:#fff;padding:45px 0 25px}
   </div>
 </footer>
 
-<!-- AI KDKMP -->
-<button class="ai-fab" id="aiFab" type="button"><span class="ai-fab-icon">✦</span>AI KDKMP</button>
-
+<!-- AI KDKMP V3 -->
+<button class="ai-fab" id="aiFab" type="button" aria-label="Buka Asisten KDKMP">
+  <span class="ai-fab-icon">✦</span><span>AI KDKMP</span>
+</button>
 <div class="ai-chat" id="aiChat" aria-hidden="true">
   <div class="ai-chat-head">
-    <div class="ai-title"><div class="ai-avatar">✦</div><div><strong>Asisten KDKMP</strong><span>Desa Taman Endah</span></div></div>
+    <div class="ai-title">
+      <div class="ai-avatar">✦</div>
+      <div><strong>Asisten KDKMP</strong><span><i class="ai-online-dot"></i> Online • Desa Taman Endah</span></div>
+    </div>
     <button class="ai-close" id="aiClose" type="button" aria-label="Tutup">×</button>
   </div>
   <div class="ai-body" id="aiBody">
-    <div class="ai-message bot"><div class="ai-bubble">Halo! 👋 Saya <strong>Asisten KDKMP Desa Taman Endah</strong>.<br><br>Saya siap membantu menjawab pertanyaan seputar KDKMP.</div></div>
-    <div class="ai-suggestions">
+    <div class="ai-welcome">
+      <div class="ai-welcome-icon">✦</div>
+      <h3>Halo! 👋</h3>
+      <p>Saya <strong>Asisten KDKMP Desa Taman Endah</strong>. Saya siap membantu menjawab pertanyaan tentang KDKMP dan pengetahuan umum koperasi.</p>
+    </div>
+    <div class="ai-suggestion-title">Pertanyaan populer</div>
+    <div class="ai-suggestions" id="aiSuggestions">
       <button type="button">Apa itu KDKMP?</button>
       <button type="button">Siapa Manager KDKMP?</button>
-      <button type="button">Bagaimana cara menjadi anggota?</button>
-      <button type="button">Di mana lokasi KDKMP?</button>
+      <button type="button">Berapa jumlah anggota?</button>
+      <button type="button">Apa itu SHU?</button>
     </div>
   </div>
-  <div class="ai-foot"><input id="aiInput" type="text" placeholder="Tulis pertanyaan..." autocomplete="off"><button id="aiSend" type="button" aria-label="Kirim">➤</button></div>
-  <div class="ai-disclaimer">Asisten AI KDKMP • Jawaban berdasarkan informasi yang tersedia.</div>
+  <div class="ai-typing" id="aiTyping" hidden><span></span><span></span><span></span><em>Asisten sedang mengetik…</em></div>
+  <div class="ai-foot">
+    <div class="ai-input-wrap"><input id="aiInput" type="text" maxlength="1000" placeholder="Tulis pertanyaan..." autocomplete="off"><span id="aiCounter">0/1000</span></div>
+    <button id="aiSend" type="button" aria-label="Kirim">➤</button>
+  </div>
+  <div class="ai-disclaimer">AI KDKMP • Jangan memasukkan data pribadi atau rahasia.</div>
 </div>
-
 <script>
 (function(){
   const navbar=document.getElementById('navbar');
@@ -657,10 +1388,21 @@ footer{background:#0b2c1d;color:#fff;padding:45px 0 25px}
     overlay.classList.add('show');
     document.body.classList.add('menu-open');
   }
+
+  const mobileMenuClose=document.getElementById('mobileMenuClose');
+  if(mobileMenuClose){
+    mobileMenuClose.addEventListener('click',closeMenu);
+  }
+
   toggle.addEventListener('click',()=>links.classList.contains('open')?closeMenu():openMenu());
   overlay.addEventListener('click',closeMenu);
   links.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
   window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>20),{passive:true});
+
+  document.addEventListener('keydown',(e)=>{
+    if(e.key==='Escape') closeMenu();
+  });
+
 
   document.querySelectorAll('.faq-q').forEach(btn=>{
     btn.addEventListener('click',()=>{
@@ -670,50 +1412,81 @@ footer{background:#0b2c1d;color:#fff;padding:45px 0 25px}
     });
   });
 
-  const API_URL="https://kdkmp-ai.jolehaksimpang.workers.dev/chat";
-  const fab=document.getElementById('aiFab');
-  const chat=document.getElementById('aiChat');
-  const close=document.getElementById('aiClose');
-  const input=document.getElementById('aiInput');
-  const send=document.getElementById('aiSend');
-  const body=document.getElementById('aiBody');
 
-  function openAI(){chat.classList.add('open');chat.setAttribute('aria-hidden','false');setTimeout(()=>input.focus(),120)}
-  function closeAI(){chat.classList.remove('open');chat.setAttribute('aria-hidden','true')}
-  function addMessage(text,user=false){
-    const row=document.createElement('div');
-    row.className='ai-message '+(user?'user':'bot');
-    const bubble=document.createElement('div');
-    bubble.className='ai-bubble';
-    bubble.textContent=text;
-    row.appendChild(bubble);body.appendChild(row);body.scrollTop=body.scrollHeight;
-    return row;
+  // DARK MODE
+  const themeToggle=document.getElementById('themeToggle');
+  const themeIcon=document.getElementById('themeIcon');
+  const themeText=document.getElementById('themeText');
+
+  function applyTheme(theme){
+    const dark=theme==='dark';
+    document.body.classList.toggle('dark-mode',dark);
+    themeIcon.textContent=dark?'☀':'☾';
+    themeText.textContent=dark?'Mode Terang':'Mode Gelap';
+    themeToggle.setAttribute('aria-pressed',String(dark));
+    themeToggle.setAttribute('aria-label',dark?'Aktifkan mode terang':'Aktifkan mode gelap');
   }
+
+  const savedTheme=localStorage.getItem('kdkmp-theme');
+  if(savedTheme){
+    applyTheme(savedTheme);
+  }else{
+    applyTheme(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+  }
+
+  themeToggle.addEventListener('click',()=>{
+    const next=document.body.classList.contains('dark-mode')?'light':'dark';
+    localStorage.setItem('kdkmp-theme',next);
+    applyTheme(next);
+  });
+
+  const API_URL="https://kdkmp-ai.jolehaksimpang.workers.dev/chat";
+  const fab=document.getElementById('aiFab'),chat=document.getElementById('aiChat'),close=document.getElementById('aiClose');
+  const input=document.getElementById('aiInput'),send=document.getElementById('aiSend'),body=document.getElementById('aiBody');
+  const typing=document.getElementById('aiTyping'),counter=document.getElementById('aiCounter'),suggestions=document.getElementById('aiSuggestions');
+  const chatHistory=[];
+
+  function openAI(){chat.classList.add('open');chat.setAttribute('aria-hidden','false');setTimeout(()=>input.focus(),150)}
+  function closeAI(){chat.classList.remove('open');chat.setAttribute('aria-hidden','true')}
+  function scrollChat(){requestAnimationFrame(()=>body.scrollTo({top:body.scrollHeight,behavior:'smooth'}))}
+  function addMessage(text,user=false){
+    const row=document.createElement('div');row.className='ai-message '+(user?'user':'bot');
+    const bubble=document.createElement('div');bubble.className='ai-bubble';bubble.textContent=text;
+    row.appendChild(bubble);body.appendChild(row);scrollChat();return row;
+  }
+  function setTyping(show){typing.hidden=!show;if(show)scrollChat()}
+  function setBusy(busy){send.disabled=busy;input.disabled=busy;if(!busy)input.focus()}
   async function ask(text){
-    text=(text||'').trim();
-    if(!text||send.disabled)return;
-    addMessage(text,true);input.value='';send.disabled=true;input.disabled=true;
-    const typing=addMessage('Sedang mencari jawaban…');
+    text=(text||'').trim();if(!text||send.disabled)return;
+    addMessage(text,true);chatHistory.push({role:'user',text});input.value='';counter.textContent='0/1000';setBusy(true);setTyping(true);
     try{
-      const res=await fetch(API_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:text})});
+      const history=chatHistory.slice(-10,-1);
+      const res=await fetch(API_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:text,history})});
       const data=await res.json().catch(()=>({}));
-      typing.remove();
       if(!res.ok)throw new Error(data.error||'Server AI tidak dapat dihubungi.');
-      addMessage(data.answer||'Maaf, saya belum mendapatkan jawaban.');
+      const answer=(data.answer||'Maaf, saya belum mendapatkan jawaban.').trim();
+      setTyping(false);addMessage(answer);chatHistory.push({role:'model',text:answer});if(chatHistory.length>20)chatHistory.splice(0,2);
     }catch(err){
-      typing.remove();
-      addMessage('Maaf, Asisten KDKMP sedang tidak dapat dihubungi. Silakan coba lagi atau hubungi pengurus melalui WhatsApp.');
-      console.error(err);
-    }finally{
-      send.disabled=false;input.disabled=false;input.focus();
-    }
+      setTyping(false);addMessage('Maaf, Asisten KDKMP sedang tidak dapat dihubungi. Silakan coba lagi atau hubungi pengurus melalui WhatsApp.');console.error(err);
+    }finally{setBusy(false)}
   }
   fab.addEventListener('click',()=>chat.classList.contains('open')?closeAI():openAI());
   close.addEventListener('click',closeAI);
   send.addEventListener('click',()=>ask(input.value));
-  input.addEventListener('keydown',e=>{if(e.key==='Enter')ask(input.value)});
-  body.querySelectorAll('.ai-suggestions button').forEach(b=>b.addEventListener('click',()=>ask(b.textContent)));
+  input.addEventListener('input',()=>counter.textContent=input.value.length+'/1000');
+  input.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();ask(input.value)}});
+  suggestions.querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>ask(btn.textContent)));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeMenu();closeAI()}});
+
+  const openAiFromSection=document.getElementById('openAiFromSection');
+  if(openAiFromSection && typeof openAI==='function') openAiFromSection.addEventListener('click',openAI);
+
 })();
 </script>
+
+<a class="wa-float-v9" href="https://wa.me/62895704144149?text=Halo%20Pengurus%20KDKMP%20Desa%20Taman%20Endah%2C%20saya%20ingin%20bertanya." target="_blank" rel="noopener" aria-label="Hubungi Pengurus KDKMP melalui WhatsApp">
+  <span>WhatsApp</span><b>⌕</b>
+</a>
+
 </body>
 </html>
