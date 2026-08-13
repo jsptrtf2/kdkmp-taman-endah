@@ -2304,3 +2304,332 @@ html.dark-mode .map-link{border-color:rgba(255,255,255,.08);color:#9cddb5}
     max-width:560px;
   }
 }
+
+
+/* =========================================================
+   KDKMP V1.6 — DARK MODE V2
+   Nuansa hijau gelap yang hangat dan nyaman.
+   Light Mode tidak disentuh.
+   ========================================================= */
+
+html.dark-mode {
+  color-scheme: dark;
+  --dark-bg: #0d2118;
+  --dark-bg-soft: #10281e;
+  --dark-card: #132d21;
+  --dark-card-2: #173625;
+  --dark-border: rgba(157, 201, 177, .16);
+  --dark-text: #f3f7f4;
+  --dark-muted: #b8c8bf;
+}
+
+html.dark-mode body,
+html.dark-mode main {
+  background: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+/* Section utama */
+html.dark-mode .section,
+html.dark-mode .section-alt,
+html.dark-mode .about,
+html.dark-mode .official-profile,
+html.dark-mode .potential-section,
+html.dark-mode .governance-section,
+html.dark-mode .business-section,
+html.dark-mode .membership-section,
+html.dark-mode .activity-section,
+html.dark-mode .faq-section,
+html.dark-mode .contact-section {
+  background: var(--dark-bg) !important;
+  color: var(--dark-text);
+}
+
+/* Variasi background agar halaman tidak terasa hitam pekat */
+html.dark-mode .section-alt,
+html.dark-mode .official-profile,
+html.dark-mode .potential-section {
+  background: var(--dark-bg-soft) !important;
+}
+
+/* Typography */
+html.dark-mode h1,
+html.dark-mode h2,
+html.dark-mode h3,
+html.dark-mode h4,
+html.dark-mode strong {
+  color: var(--dark-text);
+}
+
+html.dark-mode p,
+html.dark-mode li,
+html.dark-mode .section-intro,
+html.dark-mode .muted,
+html.dark-mode .official-stat span,
+html.dark-mode .potential-card span,
+html.dark-mode .business-card p,
+html.dark-mode .membership-card p,
+html.dark-mode .activity-card p {
+  color: var(--dark-muted);
+}
+
+/* Cards */
+html.dark-mode .card,
+html.dark-mode .official-stat,
+html.dark-mode .potential-card,
+html.dark-mode .business-card,
+html.dark-mode .membership-card,
+html.dark-mode .activity-card,
+html.dark-mode .faq-item,
+html.dark-mode .contact-card,
+html.dark-mode .governance-card,
+html.dark-mode .person-card {
+  background: var(--dark-card) !important;
+  border-color: var(--dark-border) !important;
+  box-shadow: 0 12px 30px rgba(0,0,0,.18);
+}
+
+html.dark-mode .governance-card.active,
+html.dark-mode .business-card:hover,
+html.dark-mode .potential-card:hover {
+  background: var(--dark-card-2) !important;
+}
+
+/* Quote / callout */
+html.dark-mode .about-quote,
+html.dark-mode .quote-card {
+  background: linear-gradient(145deg, #173b2a, #10291e) !important;
+  color: var(--dark-text);
+  border-color: var(--dark-border);
+}
+
+html.dark-mode .about-quote p,
+html.dark-mode .quote-card p {
+  color: var(--dark-text);
+}
+
+/* Badge dan chip */
+html.dark-mode .badge,
+html.dark-mode .trust-badge,
+html.dark-mode .hero-trust span,
+html.dark-mode .tag,
+html.dark-mode .category-chip {
+  background: rgba(128,190,157,.10) !important;
+  border-color: rgba(128,190,157,.20) !important;
+  color: #d8e9df !important;
+}
+
+/* Statistik */
+html.dark-mode .official-stat strong {
+  color: #f5faf7 !important;
+}
+
+/* Form dan FAQ */
+html.dark-mode input,
+html.dark-mode textarea,
+html.dark-mode select {
+  background: #10281e !important;
+  color: var(--dark-text) !important;
+  border-color: var(--dark-border) !important;
+}
+
+html.dark-mode .faq-item button,
+html.dark-mode .faq-question {
+  color: var(--dark-text) !important;
+}
+
+/* Footer */
+html.dark-mode footer {
+  background: #081811 !important;
+  color: var(--dark-text);
+}
+
+html.dark-mode footer p,
+html.dark-mode footer a {
+  color: var(--dark-muted);
+}
+
+/* AI Assistant */
+html.dark-mode .ai-widget,
+html.dark-mode .chat-widget,
+html.dark-mode .ai-panel {
+  background: #10281e !important;
+  border-color: var(--dark-border) !important;
+  color: var(--dark-text);
+}
+
+html.dark-mode .ai-widget p,
+html.dark-mode .chat-widget p {
+  color: var(--dark-muted);
+}
+
+/* Transisi */
+html.dark-mode body,
+html.dark-mode .section,
+html.dark-mode .section-alt,
+html.dark-mode .official-profile,
+html.dark-mode .potential-section,
+html.dark-mode .card,
+html.dark-mode .official-stat,
+html.dark-mode .potential-card,
+html.dark-mode .business-card,
+html.dark-mode .membership-card,
+html.dark-mode .activity-card,
+html.dark-mode .faq-item,
+html.dark-mode footer {
+  transition: background-color .25s ease, border-color .25s ease,
+              color .25s ease, box-shadow .25s ease;
+}
+
+
+/* =========================================================
+   V1.6.1 — DARK MODE TEXT & CARD CONTRAST FIX
+   Memperbaiki elemen yang masih menggunakan warna Light Mode.
+   ========================================================= */
+
+/* Struktur organisasi */
+html.dark-mode .structure-card,
+html.dark-mode .official-card {
+  color: #edf5ef !important;
+}
+
+html.dark-mode .person {
+  background: #132d21 !important;
+  border-color: rgba(157,201,177,.16) !important;
+  color: #edf5ef !important;
+}
+
+html.dark-mode .person strong {
+  color: #f3f7f4 !important;
+}
+
+html.dark-mode .person span {
+  color: #b8c8bf !important;
+}
+
+html.dark-mode .person img {
+  border-color: #dcefe5 !important;
+  background: #19382a !important;
+}
+
+/* Kartu manfaat keanggotaan */
+html.dark-mode .benefit {
+  background: #132d21 !important;
+  border-color: rgba(157,201,177,.16) !important;
+  color: #edf5ef !important;
+}
+
+html.dark-mode .benefit strong {
+  color: #f3f7f4 !important;
+}
+
+html.dark-mode .benefit span {
+  color: #b8c8bf !important;
+}
+
+html.dark-mode .benefit-icon {
+  opacity: 1;
+}
+
+/* Panel informasi pendaftaran */
+html.dark-mode .member-login {
+  background: #132d21 !important;
+  border-color: rgba(157,201,177,.16) !important;
+  color: #edf5ef !important;
+}
+
+html.dark-mode .member-login h3 {
+  color: #f3f7f4 !important;
+}
+
+html.dark-mode .member-login p {
+  color: #b8c8bf !important;
+}
+
+/* Struktur organisasi dan data resmi */
+html.dark-mode .official-card h3,
+html.dark-mode .structure-head h3 {
+  color: #f3f7f4 !important;
+}
+
+html.dark-mode .official-list strong {
+  color: #9cddb5 !important;
+}
+
+html.dark-mode .official-list span,
+html.dark-mode .official-note {
+  color: #b8c8bf !important;
+}
+
+/* Governance overview */
+html.dark-mode .governance-overview {
+  background: linear-gradient(145deg,#172d22,#12251c) !important;
+  border-color: rgba(157,201,177,.16) !important;
+}
+
+html.dark-mode .governance-title h3 {
+  color: #f3f7f4 !important;
+}
+
+html.dark-mode .governance-title p {
+  color: #b8c8bf !important;
+}
+
+html.dark-mode .governance-node {
+  background: #132d21 !important;
+  border-color: rgba(157,201,177,.16) !important;
+}
+
+html.dark-mode .governance-node strong {
+  color: #f3f7f4 !important;
+}
+
+html.dark-mode .governance-node span {
+  color: #b8c8bf !important;
+}
+
+/* Hindari aturan mobile/legacy yang memaksa kartu pengawas putih */
+html.dark-mode .supervisors .person {
+  background: #132d21 !important;
+}
+
+/* Tombol pada panel anggota */
+html.dark-mode .login-buttons .btn-outline {
+  color: #9cddb5 !important;
+  border-color: rgba(121,200,154,.42) !important;
+}
+
+/* Manager highlight */
+html.dark-mode .manager-highlight {
+  background: #173625 !important;
+}
+
+html.dark-mode .manager-highlight strong {
+  color: #f3f7f4 !important;
+}
+
+html.dark-mode .manager-highlight span {
+  color: #b8c8bf !important;
+}
+
+
+/* =========================================================
+   V1.6.2 — HERO TOP SPACING
+   Badge "Portal Resmi KDKMP" dibuat lebih dekat ke navbar.
+   ========================================================= */
+
+.hero .container {
+  padding-top: clamp(10px, 2.5vw, 28px) !important;
+}
+
+@media (max-width: 1100px) {
+  .hero .container {
+    padding-top: 10px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero .container {
+    padding-top: 8px !important;
+  }
+}
