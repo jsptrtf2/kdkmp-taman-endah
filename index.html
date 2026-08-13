@@ -1339,6 +1339,106 @@ footer .footer-brand .brand-mark img{
 }
 </style>
 
+
+<style id="kdkmp-mobile-menu-final-fix">
+/* =========================================================
+   FINAL FIX — MENU HP KDKMP
+   Memastikan semua menu terlihat saat hamburger dibuka.
+   ========================================================= */
+@media (max-width: 900px) {
+
+  .nav-links {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    left: auto !important;
+
+    width: min(82vw, 330px) !important;
+    height: 100vh !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+
+    padding: 100px 24px 30px !important;
+    gap: 6px !important;
+
+    background: #064d32 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+
+    box-shadow: -12px 0 40px rgba(0,0,0,.22) !important;
+
+    transform: translateX(100%) !important;
+    transition: transform .35s ease !important;
+
+    z-index: 1000 !important;
+    overflow-y: auto !important;
+  }
+
+  .nav-links.open {
+    display: flex !important;
+    transform: translateX(0) !important;
+  }
+
+  .nav-links a {
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+
+    color: #ffffff !important;
+    background: transparent !important;
+
+    font-size: 17px !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+
+    padding: 14px 12px !important;
+    margin: 0 !important;
+
+    border-radius: 10px !important;
+    text-decoration: none !important;
+  }
+
+  .nav-links a:hover,
+  .nav-links a:focus {
+    color: #ffffff !important;
+    background: rgba(255,255,255,.10) !important;
+  }
+
+  .nav-links a::after {
+    display: none !important;
+  }
+
+  .nav-links .nav-cta {
+    width: 100% !important;
+    margin: 18px 0 0 !important;
+    text-align: center !important;
+    color: #ffffff !important;
+    background: #c92a30 !important;
+    padding: 14px 18px !important;
+    border-radius: 999px !important;
+  }
+
+  .nav-toggle {
+    position: relative !important;
+    z-index: 1100 !important;
+    display: flex !important;
+  }
+
+  .nav-toggle span {
+    background: #ffffff !important;
+  }
+
+  .navbar.scrolled .nav-toggle span,
+  body.menu-open .nav-toggle span {
+    background: #ffffff !important;
+  }
+
+}
+</style>
+
 </head>
 <body>
 <!-- ================= NAVBAR ================= -->
@@ -1569,6 +1669,101 @@ footer .footer-brand .brand-mark img{
 </section>
 
 
+<section class="section kegiatan" id="kegiatan">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Berita &amp; Kegiatan</span>
+      <h2 class="section-title">Aktivitas KDKMP Desa Taman Endah</h2>
+      <p class="section-desc">Dokumentasi kegiatan, pengumuman, dan perkembangan koperasi akan ditampilkan di halaman ini.</p>
+    </div>
+    <div class="activity-empty reveal">
+      <div class="activity-empty-icon">📷</div>
+      <h3>Dokumentasi kegiatan segera hadir</h3>
+      <p>Bagian ini dapat diisi dengan foto, tanggal, dan cerita singkat kegiatan KDKMP setelah dokumentasi tersedia.</p>
+      <a class="btn btn-primary" href="https://wa.me/6289570414149?text=Halo%20Pengurus%20KDKMP%20Desa%20Taman%20Endah%2C%20saya%20ingin%20mendapatkan%20informasi%20mengenai%20kegiatan%20koperasi." target="_blank" rel="noopener">Tanyakan Kegiatan</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="keanggotaan">
+<div class="container">
+<div class="section-head center reveal">
+<span class="eyebrow">Keanggotaan</span>
+<h2 class="section-title">Bergabung dalam ekonomi bersama</h2>
+<p class="section-desc">Menjadi anggota berarti ikut memiliki, memanfaatkan layanan, dan berpartisipasi dalam perkembangan koperasi.</p>
+</div>
+<div class="member-grid">
+<div class="form-card reveal">
+<div class="login-icon">🤝</div>
+<h3 style="margin:0 0 10px;color:var(--green-900);">Mengapa menjadi anggota?</h3>
+<div class="member-benefits">
+<div class="benefit"><div class="benefit-icon">🏠</div><div><strong>Dimiliki Bersama</strong><span>Koperasi dibangun untuk kepentingan anggota dan masyarakat desa.</span></div></div>
+<div class="benefit"><div class="benefit-icon">🛒</div><div><strong>Memanfaatkan Layanan</strong><span>Anggota dapat memanfaatkan unit usaha dan layanan koperasi sesuai ketentuan.</span></div></div>
+<div class="benefit"><div class="benefit-icon">📈</div><div><strong>Ikut Mengembangkan Koperasi</strong><span>Partisipasi anggota membantu memperkuat ekonomi bersama.</span></div></div>
+</div>
+</div>
+<div class="member-login reveal">
+<div class="login-icon">📝</div>
+<h3>Informasi Pendaftaran</h3>
+<p>Untuk informasi persyaratan, simpanan, hak dan kewajiban anggota, silakan hubungi pengurus atau pengelola KDKMP Desa Taman Endah.</p>
+<div class="login-buttons"><a class="btn btn-primary" href="https://wa.me/6289570414149?text=Halo%20Pengurus%20KDKMP%20Desa%20Taman%20Endah%2C%20saya%20ingin%20mendapatkan%20informasi%20mengenai%20koperasi." target="_blank" rel="noopener">Hubungi Pengurus</a><a class="btn" href="#tentang" style="background:#fff;border:1px solid var(--border);color:var(--green-800);">Pelajari Koperasi</a></div>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="kontak">
+<div class="container">
+<div class="section-head center reveal">
+<span class="eyebrow">Hubungi Kami</span>
+<h2 class="section-title">KDKMP Desa Taman Endah</h2>
+</div>
+<div class="kontak-grid">
+<div class="reveal">
+<ul class="kontak-list">
+<li>
+<div class="kontak-ic">
+<svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="20"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+</div>
+<div>
+<strong>Alamat</strong>
+<span>Jl. Pardi Sumarto, Taman Endah, Purbalinggo, Kabupaten Lampung Timur, Lampung, 34192</span>
+</div>
+</li>
+<li>
+<div class="kontak-ic">
+<svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="20"><path d="M3 5a2 2 0 0 1 2-2h3l2 5-2.5 1.5a11 11 0 0 0 5 5L14 12l5 2v3a2 2 0 0 1-2 2h-1C9.16 19 3 12.84 3 5V5z"></path></svg>
+</div>
+<div>
+<strong>WhatsApp</strong>
+<span>0895 7041 4149</span>
+</div>
+</li>
+<li>
+<div class="kontak-ic">
+<svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="20"><path d="M4 4h16v16H4z" opacity="0"></path><path d="M22 6l-10 7L2 6"></path><rect height="16" rx="2" width="20" x="2" y="4"></rect></svg>
+</div>
+<div>
+<strong>Email</strong>
+<span>kopdesmerahputihtamanendah@gmail.com</span>
+</div>
+</li>
+</ul>
+</div>
+<div class="kontak-visual reveal">
+<div>
+<h3>Ada pertanyaan seputar koperasi?</h3>
+<p>Hubungi kami langsung melalui WhatsApp, tim KDKMP Desa Taman Endah siap membantu.</p>
+</div>
+<a class="btn wa-btn" href="https://wa.me/6289570414149?text=Halo%20Pengurus%20KDKMP%20Desa%20Taman%20Endah%2C%20saya%20ingin%20mendapatkan%20informasi%20mengenai%20koperasi." rel="noopener" target="_blank">
+<svg fill="currentColor" height="18" viewbox="0 0 24 24" width="18"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.87.51 3.62 1.4 5.12L2 22l5.13-1.35a9.9 9.9 0 0 0 4.91 1.3h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.87 9.87 0 0 0 12.04 2z"></path></svg>
+          Hubungi via WhatsApp
+        </a>
+</div>
+</div>
+</div>
+</section>
+
+
 <!-- ================= FAQ ANGGOTA ================= -->
 <section class="section faq5-section" id="faq">
   <div class="container">
@@ -1748,99 +1943,6 @@ footer .footer-brand .brand-mark img{
   </div>
 </section>
 
-<section class="section kegiatan" id="kegiatan">
-  <div class="container">
-    <div class="section-head center reveal">
-      <span class="eyebrow">Berita &amp; Kegiatan</span>
-      <h2 class="section-title">Aktivitas KDKMP Desa Taman Endah</h2>
-      <p class="section-desc">Dokumentasi kegiatan, pengumuman, dan perkembangan koperasi akan ditampilkan di halaman ini.</p>
-    </div>
-    <div class="activity-empty reveal">
-      <div class="activity-empty-icon">📷</div>
-      <h3>Dokumentasi kegiatan segera hadir</h3>
-      <p>Bagian ini dapat diisi dengan foto, tanggal, dan cerita singkat kegiatan KDKMP setelah dokumentasi tersedia.</p>
-      <a class="btn btn-primary" href="https://wa.me/6289570414149?text=Halo%20Pengurus%20KDKMP%20Desa%20Taman%20Endah%2C%20saya%20ingin%20mendapatkan%20informasi%20mengenai%20kegiatan%20koperasi." target="_blank" rel="noopener">Tanyakan Kegiatan</a>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="keanggotaan">
-<div class="container">
-<div class="section-head center reveal">
-<span class="eyebrow">Keanggotaan</span>
-<h2 class="section-title">Bergabung dalam ekonomi bersama</h2>
-<p class="section-desc">Menjadi anggota berarti ikut memiliki, memanfaatkan layanan, dan berpartisipasi dalam perkembangan koperasi.</p>
-</div>
-<div class="member-grid">
-<div class="form-card reveal">
-<div class="login-icon">🤝</div>
-<h3 style="margin:0 0 10px;color:var(--green-900);">Mengapa menjadi anggota?</h3>
-<div class="member-benefits">
-<div class="benefit"><div class="benefit-icon">🏠</div><div><strong>Dimiliki Bersama</strong><span>Koperasi dibangun untuk kepentingan anggota dan masyarakat desa.</span></div></div>
-<div class="benefit"><div class="benefit-icon">🛒</div><div><strong>Memanfaatkan Layanan</strong><span>Anggota dapat memanfaatkan unit usaha dan layanan koperasi sesuai ketentuan.</span></div></div>
-<div class="benefit"><div class="benefit-icon">📈</div><div><strong>Ikut Mengembangkan Koperasi</strong><span>Partisipasi anggota membantu memperkuat ekonomi bersama.</span></div></div>
-</div>
-</div>
-<div class="member-login reveal">
-<div class="login-icon">📝</div>
-<h3>Informasi Pendaftaran</h3>
-<p>Untuk informasi persyaratan, simpanan, hak dan kewajiban anggota, silakan hubungi pengurus atau pengelola KDKMP Desa Taman Endah.</p>
-<div class="login-buttons"><a class="btn btn-primary" href="https://wa.me/6289570414149?text=Halo%20Pengurus%20KDKMP%20Desa%20Taman%20Endah%2C%20saya%20ingin%20mendapatkan%20informasi%20mengenai%20koperasi." target="_blank" rel="noopener">Hubungi Pengurus</a><a class="btn" href="#tentang" style="background:#fff;border:1px solid var(--border);color:var(--green-800);">Pelajari Koperasi</a></div>
-</div>
-</div>
-</div>
-</section>
-<section class="section" id="kontak">
-<div class="container">
-<div class="section-head center reveal">
-<span class="eyebrow">Hubungi Kami</span>
-<h2 class="section-title">KDKMP Desa Taman Endah</h2>
-</div>
-<div class="kontak-grid">
-<div class="reveal">
-<ul class="kontak-list">
-<li>
-<div class="kontak-ic">
-<svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="20"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-</div>
-<div>
-<strong>Alamat</strong>
-<span>Jl. Pardi Sumarto, Taman Endah, Purbalinggo, Kabupaten Lampung Timur, Lampung, 34192</span>
-</div>
-</li>
-<li>
-<div class="kontak-ic">
-<svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="20"><path d="M3 5a2 2 0 0 1 2-2h3l2 5-2.5 1.5a11 11 0 0 0 5 5L14 12l5 2v3a2 2 0 0 1-2 2h-1C9.16 19 3 12.84 3 5V5z"></path></svg>
-</div>
-<div>
-<strong>WhatsApp</strong>
-<span>0895 7041 4149</span>
-</div>
-</li>
-<li>
-<div class="kontak-ic">
-<svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="20"><path d="M4 4h16v16H4z" opacity="0"></path><path d="M22 6l-10 7L2 6"></path><rect height="16" rx="2" width="20" x="2" y="4"></rect></svg>
-</div>
-<div>
-<strong>Email</strong>
-<span>kopdesmerahputihtamanendah@gmail.com</span>
-</div>
-</li>
-</ul>
-</div>
-<div class="kontak-visual reveal">
-<div>
-<h3>Ada pertanyaan seputar koperasi?</h3>
-<p>Hubungi kami langsung melalui WhatsApp, tim KDKMP Desa Taman Endah siap membantu.</p>
-</div>
-<a class="btn wa-btn" href="https://wa.me/6289570414149?text=Halo%20Pengurus%20KDKMP%20Desa%20Taman%20Endah%2C%20saya%20ingin%20mendapatkan%20informasi%20mengenai%20koperasi." rel="noopener" target="_blank">
-<svg fill="currentColor" height="18" viewbox="0 0 24 24" width="18"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.87.51 3.62 1.4 5.12L2 22l5.13-1.35a9.9 9.9 0 0 0 4.91 1.3h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.87 9.87 0 0 0 12.04 2z"></path></svg>
-          Hubungi via WhatsApp
-        </a>
-</div>
-</div>
-</div>
-</section>
 </main>
 
 
