@@ -198,7 +198,7 @@
     position:relative;
     background:linear-gradient(165deg,var(--green-900) 0%, var(--green-700) 58%, var(--green-600) 100%);
     color:var(--white);
-    padding:145px 0 0;
+    padding:170px 0 0;
     overflow:hidden;
   }
   .hero-grain{
@@ -608,7 +608,7 @@
     .nav-cta{margin-left:0;}
     .navbar.scrolled .nav-toggle span{background:var(--ink);}
     body.menu-open .nav-toggle span{background:#fff !important;}
-    .hero{padding-top:130px;}
+    .hero{padding-top:140px;}
     .hero .container{padding-bottom:110px;}
     .about-features{grid-template-columns:1fr;}
     .unit-grid{grid-template-columns:1fr;}
