@@ -2835,3 +2835,43 @@ html.dark-mode .about-feature span {
 .ai-bubble mjx-container { max-width: 100%; overflow-x: auto; overflow-y: hidden; }
 .ai-bubble mjx-container[display="true"] { margin: .65em 0 !important; }
 .ai-bubble mjx-container[jax="CHTML"] { outline: none; }
+
+/* Perbaikan MathJax agar rumus panjang tidak terpotong di HP */
+.ai-bubble {
+  min-width: 0;
+  max-width: 86%;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.ai-bubble mjx-container {
+  box-sizing: border-box !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
+.ai-bubble mjx-container[display="true"] {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  -webkit-overflow-scrolling: touch;
+  padding: 4px 0 8px !important;
+  margin: .65em 0 !important;
+}
+
+/* Pastikan elemen internal MathJax tidak memaksa lebar bubble */
+.ai-bubble mjx-container[display="true"] > * {
+  max-width: none !important;
+}
+
+@media (max-width: 600px) {
+  .ai-bubble {
+    max-width: 94%;
+  }
+
+  .ai-bubble mjx-container[display="true"] {
+    font-size: 92% !important;
+  }
+}
