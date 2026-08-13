@@ -2875,3 +2875,20 @@ html.dark-mode .about-feature span {
     font-size: 92% !important;
   }
 }
+
+
+/* =========================================================
+   AI CHAT — UKURAN HEADING
+   ========================================================= */
+
+.ai-bubble .ai-heading-4 {
+  font-size: 1em;
+}
+
+.ai-bubble .ai-heading-5 {
+  font-size: .97em;
+}
+
+.ai-bubble .ai-heading-6 {
+  font-size: .94em;
+}
